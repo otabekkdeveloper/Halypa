@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="app_color">#101622</color>
+    <color name="ic_unchecked">#71717A</color>
+    <color name="ic_checked">#135BEC</color>
+
+
 </resources>

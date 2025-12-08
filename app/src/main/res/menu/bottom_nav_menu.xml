@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Главная"/>
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_search"
+        android:title="Поиск"/>
+    <item
+        android:id="@+id/nav_notifications"
+        android:icon="@drawable/ic_settings"
+        android:title="Уведомления"/>
+    <item
+        android:id="@+id/nav_questions"
+        android:icon="@drawable/ic_question"
+        android:title="Сообщения"/>
+    <item
+        android:id="@+id/nav_statistic"
+        android:icon="@drawable/ic_statistics"
+        android:title="Профиль"/>
+
+</menu>
