@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "344",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             pdfPath = "books/tm.pdf"
         ))
 
@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "1200",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf"),
@@ -82,7 +82,7 @@ class HomeFragment : Fragment() {
             year = "2001",
             pages = "400",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             translations = listOf(
                 Translation("Türkmen", null, "books/tm.pdf"),
                 Translation("Русский", "Переводчик А.", "books/tm.pdf"),
@@ -98,7 +98,7 @@ class HomeFragment : Fragment() {
             year = "2023",
             pages = "800",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf")
@@ -116,7 +116,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "344",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             pdfPath = "books/tm.pdf"
         ))
 
@@ -128,7 +128,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "1200",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf"),
@@ -144,7 +144,7 @@ class HomeFragment : Fragment() {
             year = "2001",
             pages = "400",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             translations = listOf(
                 Translation("Türkmen", null, "books/tm.pdf"),
                 Translation("Русский", "Переводчик А.", "books/tm.pdf"),
@@ -160,70 +160,7 @@ class HomeFragment : Fragment() {
             year = "2023",
             pages = "800",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
-            volumes = listOf(
-                Volume(1, "Tom 1", "400", "books/tm.pdf"),
-                Volume(2, "Tom 2", "400", "books/tm.pdf")
-            ),
-            translations = listOf(
-                Translation("Türkmen", null, "books/tm.pdf"),
-                Translation("Русский", null, "books/tm.pdf")
-            )
-        ))
-
-
-        books.add(Book(
-            id = 1,
-            title = "Ak şäherim Aşgabat",
-            author = "Gurbanguly Berdimuhamedow",
-            year = "2021",
-            pages = "344",
-            language = "Türkmen",
-            coverImage = R.drawable.arkadag,
-            pdfPath = "books/tm.pdf"
-        ))
-
-        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
-        books.add(Book(
-            id = 2,
-            title = "Türkmenistanyň dermanlyk ösümlikleri",
-            author = "Gurbanguly Berdimuhamedow",
-            year = "2021",
-            pages = "1200",
-            language = "Türkmen",
-            coverImage = R.drawable.arkadag,
-            volumes = listOf(
-                Volume(1, "Tom 1", "400", "books/tm.pdf"),
-                Volume(2, "Tom 2", "400", "books/tm.pdf"),
-                Volume(3, "Tom 3", "400", "books/tm.pdf")
-            )
-        ))
-
-        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
-        books.add(Book(
-            id = 3,
-            title = "Ruhnama",
-            author = "Saparmyrat Nyýazow",
-            year = "2001",
-            pages = "400",
-            language = "Türkmen",
-            coverImage = R.drawable.arkadag,
-            translations = listOf(
-                Translation("Türkmen", null, "books/tm.pdf"),
-                Translation("Русский", "Переводчик А.", "books/tm.pdf"),
-                Translation("English", "Translator B.", "books/tm.pdf")
-            )
-        ))
-
-        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
-        books.add(Book(
-            id = 4,
-            title = "Täze eýýamyň bosagasynda",
-            author = "Gurbanguly Berdimuhamedow",
-            year = "2023",
-            pages = "800",
-            language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf")
@@ -242,7 +179,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "344",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             pdfPath = "books/tm.pdf"
         ))
 
@@ -254,7 +191,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "1200",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf"),
@@ -270,7 +207,7 @@ class HomeFragment : Fragment() {
             year = "2001",
             pages = "400",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             translations = listOf(
                 Translation("Türkmen", null, "books/tm.pdf"),
                 Translation("Русский", "Переводчик А.", "books/tm.pdf"),
@@ -286,7 +223,7 @@ class HomeFragment : Fragment() {
             year = "2023",
             pages = "800",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf")
@@ -305,7 +242,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "344",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             pdfPath = "books/tm.pdf"
         ))
 
@@ -317,7 +254,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "1200",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf"),
@@ -333,7 +270,7 @@ class HomeFragment : Fragment() {
             year = "2001",
             pages = "400",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             translations = listOf(
                 Translation("Türkmen", null, "books/tm.pdf"),
                 Translation("Русский", "Переводчик А.", "books/tm.pdf"),
@@ -349,7 +286,7 @@ class HomeFragment : Fragment() {
             year = "2023",
             pages = "800",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf")
@@ -368,7 +305,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "344",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             pdfPath = "books/tm.pdf"
         ))
 
@@ -380,7 +317,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "1200",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf"),
@@ -396,7 +333,7 @@ class HomeFragment : Fragment() {
             year = "2001",
             pages = "400",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             translations = listOf(
                 Translation("Türkmen", null, "books/tm.pdf"),
                 Translation("Русский", "Переводчик А.", "books/tm.pdf"),
@@ -412,7 +349,7 @@ class HomeFragment : Fragment() {
             year = "2023",
             pages = "800",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf")
@@ -424,7 +361,6 @@ class HomeFragment : Fragment() {
         ))
 
 
-
         books.add(Book(
             id = 1,
             title = "Ak şäherim Aşgabat",
@@ -432,7 +368,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "344",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             pdfPath = "books/tm.pdf"
         ))
 
@@ -444,7 +380,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "1200",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf"),
@@ -460,7 +396,7 @@ class HomeFragment : Fragment() {
             year = "2001",
             pages = "400",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             translations = listOf(
                 Translation("Türkmen", null, "books/tm.pdf"),
                 Translation("Русский", "Переводчик А.", "books/tm.pdf"),
@@ -476,7 +412,7 @@ class HomeFragment : Fragment() {
             year = "2023",
             pages = "800",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf")
@@ -496,7 +432,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "344",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             pdfPath = "books/tm.pdf"
         ))
 
@@ -508,7 +444,7 @@ class HomeFragment : Fragment() {
             year = "2021",
             pages = "1200",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf"),
@@ -524,7 +460,7 @@ class HomeFragment : Fragment() {
             year = "2001",
             pages = "400",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
             translations = listOf(
                 Translation("Türkmen", null, "books/tm.pdf"),
                 Translation("Русский", "Переводчик А.", "books/tm.pdf"),
@@ -540,7 +476,71 @@ class HomeFragment : Fragment() {
             year = "2023",
             pages = "800",
             language = "Türkmen",
-            coverImage = R.drawable.arkadag,
+            coverImage = R.drawable.placeholder,
+            volumes = listOf(
+                Volume(1, "Tom 1", "400", "books/tm.pdf"),
+                Volume(2, "Tom 2", "400", "books/tm.pdf")
+            ),
+            translations = listOf(
+                Translation("Türkmen", null, "books/tm.pdf"),
+                Translation("Русский", null, "books/tm.pdf")
+            )
+        ))
+
+
+
+        books.add(Book(
+            id = 1,
+            title = "Ak şäherim Aşgabat",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2021",
+            pages = "344",
+            language = "Türkmen",
+            coverImage = R.drawable.placeholder,
+            pdfPath = "books/tm.pdf"
+        ))
+
+        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
+        books.add(Book(
+            id = 2,
+            title = "Türkmenistanyň dermanlyk ösümlikleri",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2021",
+            pages = "1200",
+            language = "Türkmen",
+            coverImage = R.drawable.placeholder,
+            volumes = listOf(
+                Volume(1, "Tom 1", "400", "books/tm.pdf"),
+                Volume(2, "Tom 2", "400", "books/tm.pdf"),
+                Volume(3, "Tom 3", "400", "books/tm.pdf")
+            )
+        ))
+
+        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
+        books.add(Book(
+            id = 3,
+            title = "Ruhnama",
+            author = "Saparmyrat Nyýazow",
+            year = "2001",
+            pages = "400",
+            language = "Türkmen",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                Translation("Türkmen", null, "books/tm.pdf"),
+                Translation("Русский", "Переводчик А.", "books/tm.pdf"),
+                Translation("English", "Translator B.", "books/tm.pdf")
+            )
+        ))
+
+        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
+        books.add(Book(
+            id = 4,
+            title = "Täze eýýamyň bosagasynda",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2023",
+            pages = "800",
+            language = "Türkmen",
+            coverImage = R.drawable.placeholder,
             volumes = listOf(
                 Volume(1, "Tom 1", "400", "books/tm.pdf"),
                 Volume(2, "Tom 2", "400", "books/tm.pdf")
