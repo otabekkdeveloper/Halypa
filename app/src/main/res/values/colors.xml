@@ -6,7 +6,10 @@
 
     <color name="app_color">#101622</color>
     <color name="ic_unchecked">#71717A</color>
+    <color name="gray">#71717A</color>
     <color name="ic_checked">#135BEC</color>
+    <color name="color_bg_search">#27272A</color>
+    <color name="read_btn_color">#135BEC</color>
 
 
 </resources>

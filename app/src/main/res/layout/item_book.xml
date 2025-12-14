@@ -25,9 +25,10 @@
         android:id="@+id/book_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/libre_baskerville"
         android:text="Türkmenistanyň dermanlyk ösümlikleri"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:maxLines="2"
         android:ellipsize="end"
@@ -38,11 +39,12 @@
         android:id="@+id/book_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/libre_baskerville_bold"
+        android:maxLines="1"
         android:text="Gurbanguly Berdimuhamedow"
         android:textColor="#71717A"
-        android:textSize="12sp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:layout_marginTop="4dp"/>
+        android:textSize="10sp" />
 
 </LinearLayout>

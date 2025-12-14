@@ -19,6 +19,7 @@ import com.example.arkadagapp.model.Book
 import com.example.arkadagapp.model.Translation
 import com.example.arkadagapp.model.Volume
 import com.example.arkadagapp.presentation.pdfReader.PdfReaderFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BookDetailFragment : Fragment() {
 
@@ -43,6 +44,17 @@ class BookDetailFragment : Fragment() {
         book = arguments?.getSerializable(ARG_BOOK) as Book
     }
 
+    override fun onResume() {
+        super.onResume()
+        // SKRYT' Bottom Navigation
+        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // POKAZAT' Bottom Navigation obratno
+        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.VISIBLE
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

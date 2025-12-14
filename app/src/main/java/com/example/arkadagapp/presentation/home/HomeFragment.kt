@@ -1,7 +1,10 @@
+package com.example.arkadagapp.presentation.home
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +19,9 @@ class HomeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var bookAdapter: BookAdapter
-    private val books = mutableListOf<Book>()
+    private lateinit var searchView: SearchView
+    private var books = mutableListOf<Book>()
+    private var filteredBooks = mutableListOf<Book>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,23 +31,51 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         recyclerView = view.findViewById(R.id.books_recycler_view)
+        searchView = view.findViewById(R.id.search_view)
 
         // Grid Layout s 2 kolonkami
         recyclerView.layoutManager = GridLayoutManager(context, 2)
 
-        // OCHISTIT' spisok pered zagruzkoj!
-        books.clear()
-
         // Zagruzhaem knigi
+        books.clear()
         loadBooks()
+        filteredBooks.addAll(books)
 
         // Adapter s klikom
-        bookAdapter = BookAdapter(books) { book ->
+        bookAdapter = BookAdapter(filteredBooks) { book ->
             openBookDetail(book)
         }
         recyclerView.adapter = bookAdapter
 
+        // POISK cherez SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterBooks(newText ?: "")
+                return true
+            }
+        })
+
         return view
+    }
+
+    private fun filterBooks(query: String) {
+        filteredBooks.clear()
+
+        if (query.isEmpty()) {
+            filteredBooks.addAll(books)
+        } else {
+            val filtered = books.filter { book ->
+                book.title.contains(query, ignoreCase = true) ||
+                        book.author.contains(query, ignoreCase = true)
+            }
+            filteredBooks.addAll(filtered)
+        }
+
+        bookAdapter.notifyDataSetChanged()
     }
 
     private fun loadBooks() {

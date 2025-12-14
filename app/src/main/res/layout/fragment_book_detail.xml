@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F172A"
@@ -25,16 +26,16 @@
                 android:layout_height="48dp"
                 android:src="@drawable/ic_arrow_back"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:tint="#FFFFFF"/>
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Halypa"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="@font/libre_baskerville"
                 android:gravity="center"/>
 
             <View
@@ -42,11 +43,19 @@
                 android:layout_height="48dp"/>
         </LinearLayout>
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray"/>
+
         <!-- Book Cover -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
+            app:cardCornerRadius="16dp"
             android:layout_height="400dp"
-            android:layout_margin="24dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="12dp"
             android:elevation="8dp"
             android:radius="16dp">
 
@@ -64,9 +73,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ak şäherim Aşgabat"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/libre_baskerville"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             android:gravity="center"
             android:paddingHorizontal="24dp"/>
 
@@ -75,7 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp"
+            android:paddingTop="10dp"
+            android:paddingHorizontal="24dp"
             android:layout_marginTop="16dp">
 
             <!-- Tom Section (pokazyvaetsya TOLKO esli est' toma) -->
@@ -91,15 +101,14 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Jilt:"
-                    android:textColor="#71717A"
-                    android:textSize="16sp"
+                    style="@style/text_gray"
                     android:layout_gravity="center_vertical"/>
 
                 <Spinner
+                    style="@style/text_white"
                     android:id="@+id/tom_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/spinner_background"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"/>
@@ -117,8 +126,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Dil:"
-                    android:textColor="#71717A"
-                    android:textSize="16sp"
+                    style="@style/text_gray"
                     android:layout_gravity="center_vertical"/>
 
                 <!-- ESLI 1 yazyk - prosto TextView -->
@@ -128,16 +136,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Türkmen"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
+                    style="@style/text_white"
                     android:visibility="visible"/>
 
                 <!-- ESLI neskolko yazykov - Spinner -->
                 <Spinner
+                    style="@style/text_white"
                     android:id="@+id/language_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/spinner_background"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
@@ -155,8 +162,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Awtor:"
-                    android:textColor="#71717A"
-                    android:textSize="16sp"/>
+                    style="@style/text_gray"/>
 
                 <TextView
                     android:id="@+id/detail_author"
@@ -164,8 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Gurbanguly Berdimuhamedow"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"/>
+                    style="@style/text_white"/>
             </LinearLayout>
 
             <!-- Year -->
@@ -179,8 +184,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Ýyl:"
-                    android:textColor="#71717A"
-                    android:textSize="16sp"/>
+                    style="@style/text_gray"/>
 
                 <TextView
                     android:id="@+id/detail_year"
@@ -188,8 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="2021"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"/>
+                    style="@style/text_white"/>
             </LinearLayout>
 
             <!-- Pages -->
@@ -202,8 +205,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Sahypa:"
-                    android:textColor="#71717A"
-                    android:textSize="16sp"/>
+                    style="@style/text_gray"/>
 
                 <TextView
                     android:id="@+id/detail_pages"
@@ -211,21 +213,22 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="344"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"/>
+                    style="@style/text_white"/>
             </LinearLayout>
         </LinearLayout>
 
         <!-- Read Button -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/read_button"
+            app:cornerRadius="26dp"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:text="Oka"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
+            android:fontFamily="@font/libre_baskerville"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:background="@drawable/button_blue"
+            android:backgroundTint="@color/read_btn_color"
             android:layout_margin="24dp"/>
 
     </LinearLayout>
