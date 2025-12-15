@@ -1,6 +1,5 @@
 package com.example.arkadagapp
 
-
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.WindowManager
@@ -43,8 +42,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> HomeFragment()
                 R.id.nav_search -> SearchFragment()
                 R.id.nav_quote -> QuoteFragment()
-                R.id.nav_questions -> SettingsFragment()
-                R.id.nav_settings -> TestFragment()
+                R.id.nav_questions -> TestFragment()
+                R.id.nav_settings -> SettingsFragment()
                 else -> HomeFragment()
             }
             loadFragment(fragment)

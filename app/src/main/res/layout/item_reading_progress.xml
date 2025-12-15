@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_card"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/book_cover_small"
+        android:layout_width="48dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:background="#D1D5DB"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/book_title_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Türkmenistanyň dermanlyk ösümlikleri"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/book_pages_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25 / 100 sahypa"
+            android:textColor="#71717A"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/progress_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25%"
+            android:textColor="#2563EB"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:progress="25"
+            android:max="100"
+            android:progressDrawable="@drawable/circular_progress"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+</LinearLayout>

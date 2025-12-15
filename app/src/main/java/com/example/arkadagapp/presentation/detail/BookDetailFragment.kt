@@ -18,7 +18,7 @@ import com.example.arkadagapp.R
 import com.example.arkadagapp.model.Book
 import com.example.arkadagapp.model.Translation
 import com.example.arkadagapp.model.Volume
-import com.example.arkadagapp.presentation.pdfReader.PdfReaderFragment
+import com.example.arkadagapp.presentation.reader.PdfReaderFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BookDetailFragment : Fragment() {
@@ -154,8 +154,13 @@ class BookDetailFragment : Fragment() {
     }
 
     private fun openPdfReader(pdfPath: String) {
-        // Otkryt' PDF Reader Fragment
-        val pdfFragment = PdfReaderFragment.newInstance(pdfPath, book.title)
+        // Otkryt' PDF Reader Fragment s vsemi dannymi
+        val pdfFragment = PdfReaderFragment.newInstance(
+            pdfPath = pdfPath,
+            bookTitle = book.title,
+            bookId = book.id,
+            bookCover = book.coverImage
+        )
         parentFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, pdfFragment)
             .addToBackStack(null)
