@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arkadagapp.R
 import com.example.arkadagapp.model.BookProgress
+import com.example.arkadagapp.presentation.settings.PieChartView
 
 class ReadingProgressAdapter(
     private val progressList: List<BookProgress>,
@@ -20,7 +20,7 @@ class ReadingProgressAdapter(
         val bookTitle: TextView = view.findViewById(R.id.book_title_progress)
         val bookPages: TextView = view.findViewById(R.id.book_pages_progress)
         val progressPercentage: TextView = view.findViewById(R.id.progress_percentage)
-        val progressCircular: ProgressBar = view.findViewById(R.id.progress_circular)
+        val pieChart: PieChartView = view.findViewById(R.id.pie_chart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProgressViewHolder {
@@ -35,7 +35,10 @@ class ReadingProgressAdapter(
         holder.bookTitle.text = bookProgress.title
         holder.bookPages.text = "${bookProgress.currentPage + 1} / ${bookProgress.totalPages} sahypa"
         holder.progressPercentage.text = "${bookProgress.progress}%"
-        holder.progressCircular.progress = bookProgress.progress
+
+        // Ustanovit' progress v pie chart
+        holder.pieChart.setProgress(bookProgress.progress)
+
         holder.bookCover.setImageResource(bookProgress.coverImage)
 
         holder.itemView.setOnClickListener {

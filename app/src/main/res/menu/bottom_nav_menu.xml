@@ -7,7 +7,7 @@
         android:title="Baş Sahypa"/>
     <item
         android:id="@+id/nav_search"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_for_search"
         android:title="Gözleg"/>
     <item
         android:id="@+id/nav_quote"

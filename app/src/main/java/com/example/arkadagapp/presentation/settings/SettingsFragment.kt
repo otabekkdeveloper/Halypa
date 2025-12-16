@@ -15,11 +15,14 @@ import com.example.arkadagapp.model.BookProgress
 import com.example.arkadagapp.presentation.pdfReader.ReadingProgressAdapter
 import com.example.arkadagapp.presentation.reader.PdfReaderFragment
 import com.example.arkadagapp.utils.BookmarkManager
+import com.example.arkadagapp.utils.ThemeManager
+import com.example.arkadagapp.utils.ThemePrefs
 
 class SettingsFragment : Fragment() {
 
     private lateinit var progressRecycler: RecyclerView
     private lateinit var languageSpinner: Spinner
+
     private lateinit var themeSwitch: SwitchCompat
     private lateinit var bookmarkManager: BookmarkManager
 
@@ -34,11 +37,27 @@ class SettingsFragment : Fragment() {
         languageSpinner = view.findViewById(R.id.language_spinner)
         themeSwitch = view.findViewById(R.id.theme_switch)
         bookmarkManager = BookmarkManager(requireContext())
-
         progressRecycler.layoutManager = LinearLayoutManager(context)
+        // Инициализация
+        val currentTheme = ThemePrefs.load(requireContext())
+        themeSwitch.isChecked = currentTheme == ThemeManager.MODE_DARK
+
+        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            val mode = if (isChecked)
+                ThemeManager.MODE_DARK
+            else
+                ThemeManager.MODE_LIGHT
+
+            ThemePrefs.save(requireContext(), mode)
+            ThemeManager.applyTheme(mode)
+        }
+
 
         setupLanguageSpinner()
         loadReadingProgress()
+
+
+
 
         return view
     }
@@ -73,4 +92,8 @@ class SettingsFragment : Fragment() {
             .addToBackStack(null)
             .commit()
     }
+
+
+
+
 }

@@ -13,30 +13,65 @@
         android:layout_height="wrap_content"
         android:text="Halypa"
         android:textSize="24sp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:fontFamily="@font/libre_baskerville"
         android:padding="16dp"
         android:gravity="center"/>
 
-    <!-- SearchView -->
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_view"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray"/>
+
+    <!-- Custom Search Bar -->
+    <LinearLayout
+        android:id="@+id/search_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:orientation="horizontal"
         android:background="@drawable/bg_search"
-        android:iconifiedByDefault="false"
-        app:queryHint="Gözleg..."
-        app:searchIcon="@drawable/ic_search"
-        app:closeIcon="@drawable/ic_arrow_back"
-        app:queryBackground="@null"/>
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_search"
+            app:tint="@color/gray"/>
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="Gözleg..."
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray"
+            android:fontFamily="@font/libre_baskerville"
+            android:textSize="16sp"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"/>
+
+        <ImageView
+            android:id="@+id/clear_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_close"
+            app:tint="@color/gray"
+            android:visibility="gone"/>
+    </LinearLayout>
 
     <!-- RecyclerView Grid (2 columns) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/books_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
+        android:paddingHorizontal="16dp"
         android:clipToPadding="false"/>
 
 </LinearLayout>

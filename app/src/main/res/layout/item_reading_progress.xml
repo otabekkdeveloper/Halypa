@@ -4,17 +4,20 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@drawable/bg_card"
-    android:padding="16dp"
-    android:layout_marginBottom="12dp"
     android:clickable="true"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
     android:focusable="true">
 
     <ImageView
         android:id="@+id/book_cover_small"
         android:layout_width="48dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
         android:layout_height="64dp"
-        android:scaleType="centerCrop"
-        android:background="#D1D5DB"/>
+        android:scaleType="centerCrop"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -29,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Türkmenistanyň dermanlyk ösümlikleri"
-            android:textColor="#FFFFFF"
+            style="@style/text_white"
             android:textSize="14sp"
             android:textStyle="bold"
             android:maxLines="2"
@@ -40,36 +43,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="25 / 100 sahypa"
-            android:textColor="#71717A"
+            style="@style/text_gray"
             android:textSize="12sp"
             android:layout_marginTop="4dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
+    <!-- Pie Chart Progress -->
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_vertical">
 
+        <!-- Percentage Text -->
         <TextView
             android:id="@+id/progress_percentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="25%"
-            android:textColor="#2563EB"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:text="95%"
+            android:textColor="@color/blue"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/libre_baskerville"
+            android:layout_toStartOf="@id/pie_chart"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"/>
 
-        <ProgressBar
-            android:id="@+id/progress_circular"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:progress="25"
-            android:max="100"
-            android:progressDrawable="@drawable/circular_progress"
-            android:layout_marginTop="4dp"/>
-    </LinearLayout>
+        <!-- Custom Pie Chart View -->
+        <com.example.arkadagapp.presentation.settings.PieChartView
+            android:id="@+id/pie_chart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
 </LinearLayout>
