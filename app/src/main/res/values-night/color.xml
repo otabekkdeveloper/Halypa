@@ -9,5 +9,6 @@
     <color name="color_bg_search">#27272A</color>
     <color name="read_btn_color">#135BEC</color>
     <color name="blue">#2563EB</color>
-    <color name="dark_gray">#1E293B</color>
+    <color name="dark_gray">#ADAAA8</color>
+    <color name="bg_card_settings">#1E293B</color>
 </resources>

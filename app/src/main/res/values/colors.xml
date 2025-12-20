@@ -2,14 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-
     <color name="app_color">#101622</color>
     <color name="ic_unchecked">#71717A</color>
     <color name="gray">#71717A</color>
     <color name="ic_checked">#135BEC</color>
-    <color name="color_bg_search">#27272A</color>
+    <color name="color_bg_search">#7D7D80</color>
     <color name="read_btn_color">#135BEC</color>
     <color name="blue">#2563EB</color>
     <color name="dark_gray">#1E293B</color>
+    <color name="bg_card_settings">#737376</color>
 </resources>

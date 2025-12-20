@@ -43,7 +43,7 @@
                 android:textSize="14sp"
                 android:fontFamily="@font/libre_baskerville"
                 android:gravity="center"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:drawableStart="@drawable/ic_language"
                 android:drawablePadding="8dp" />
@@ -56,8 +56,12 @@
             <Spinner
                 android:id="@+id/language_spinner"
                 android:layout_width="130dp"
-                android:layout_height="30dp"
-                android:background="@drawable/spinner_background" />
+                android:layout_height="48dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="12dp"
+                android:paddingEnd="36dp"
+                android:spinnerMode="dropdown"
+                android:dropDownVerticalOffset="48dp"/>
 
 
         </LinearLayout>
@@ -188,15 +192,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tamamlanan\nsynaglar"
-                    android:textColor="#71717A"
-                    android:textSize="14sp"/>
+                    style="@style/text_gray"/>
 
                 <TextView
                     android:id="@+id/completed_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5"
-                    android:textColor="#2563EB"
+                    android:fontFamily="@font/libre_baskerville"
+                    android:textColor="@color/blue"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp"/>
@@ -212,6 +216,7 @@
                 android:layout_marginStart="8dp">
 
                 <TextView
+                    style="@style/text_gray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Saýlanan\nsitatalar"
@@ -223,7 +228,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
-                    android:textColor="#2563EB"
+                    android:fontFamily="@font/libre_baskerville"
+                    android:textColor="@color/blue"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp"/>
@@ -239,6 +245,7 @@
             android:padding="16dp">
 
             <TextView
+                style="@style/text_gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Saýlanan kitaplar"
@@ -250,7 +257,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="17"
-                android:textColor="#2563EB"
+                android:fontFamily="@font/libre_baskerville"
+                android:textColor="@color/blue"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>

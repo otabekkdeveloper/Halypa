@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A1F2E">
+    android:background="@color/app_color">
 
     <!-- Top Bar -->
     <LinearLayout
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Älem içre at gezer"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -53,7 +54,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/top_bar"
-        android:layout_above="@id/bottom_bar"/>
+        android:layout_above="@id/bottom_bar"
+        tools:ignore="MissingClass" />
 
     <!-- Bottom Bar -->
     <LinearLayout
@@ -62,7 +64,7 @@
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:background="#0F172A"
+        android:background="@color/app_color"
         android:gravity="center"
         android:elevation="4dp">
 
@@ -71,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"/>
 
