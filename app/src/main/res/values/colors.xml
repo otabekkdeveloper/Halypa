@@ -11,4 +11,6 @@
     <color name="blue">#2563EB</color>
     <color name="dark_gray">#1E293B</color>
     <color name="bg_card_settings">#737376</color>
+    <color name="bg_search">#27272A</color>
+
 </resources>

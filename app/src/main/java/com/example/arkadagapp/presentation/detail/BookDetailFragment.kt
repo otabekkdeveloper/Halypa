@@ -4,28 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.Spinner
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.arkadagapp.R
 import com.example.arkadagapp.model.Book
-import com.example.arkadagapp.model.Translation
-import com.example.arkadagapp.model.Volume
+import com.example.arkadagapp.model.BookTranslation
 import com.example.arkadagapp.presentation.reader.PdfReaderFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BookDetailFragment : Fragment() {
 
     private lateinit var book: Book
-    private var selectedVolume: Volume? = null
-    private var selectedTranslation: Translation? = null
+    private var selectedTranslation: BookTranslation? = null
+    private var selectedVolumeIndex: Int = 0
 
     companion object {
         private const val ARG_BOOK = "book"
@@ -42,19 +32,9 @@ class BookDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         book = arguments?.getSerializable(ARG_BOOK) as Book
+        selectedTranslation = book.translations.firstOrNull()
     }
 
-    override fun onResume() {
-        super.onResume()
-        // SKRYT' Bottom Navigation
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
-    }
-
-    override fun onPause() {
-        super.onPause()
-        // POKAZAT' Bottom Navigation obratno
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.VISIBLE
-    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -62,110 +42,180 @@ class BookDetailFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_book_detail, container, false)
 
-        // Back button
-        view.findViewById<ImageButton>(R.id.back_button).setOnClickListener {
-            parentFragmentManager.popBackStack()
-        }
+        // Views
+        val backButton = view.findViewById<ImageButton>(R.id.back_button)
+        val bookCover = view.findViewById<ImageView>(R.id.detail_book_cover)
+        val bookTitle = view.findViewById<TextView>(R.id.detail_book_title)
+        val bookAuthor = view.findViewById<TextView>(R.id.detail_author)
+        val bookYear = view.findViewById<TextView>(R.id.detail_year)
+        val bookPages = view.findViewById<TextView>(R.id.detail_pages)
 
-        // Set basic book data
-        view.findViewById<ImageView>(R.id.detail_book_cover).setImageResource(book.coverImage)
-        view.findViewById<TextView>(R.id.detail_book_title).text = book.title
-        view.findViewById<TextView>(R.id.detail_author).text = book.author
-        view.findViewById<TextView>(R.id.detail_year).text = book.year
-        view.findViewById<TextView>(R.id.detail_pages).text = book.pages
+        val languageSection = view.findViewById<LinearLayout>(R.id.language_section)
+        val languageText = view.findViewById<TextView>(R.id.language_text)
+        val languageSpinner = view.findViewById<Spinner>(R.id.language_spinner)
 
         val tomSection = view.findViewById<LinearLayout>(R.id.tom_section)
         val tomSpinner = view.findViewById<Spinner>(R.id.tom_spinner)
-        val languageText = view.findViewById<TextView>(R.id.language_text)
-        val languageSpinner = view.findViewById<Spinner>(R.id.language_spinner)
+
         val readButton = view.findViewById<Button>(R.id.read_button)
 
-        // LOGIKA 1: TOMA (Jilt)
-        val volumes = book.volumes
-        if (volumes != null && volumes.isNotEmpty()) {
-            // POKAZAT' Tom dropdown
-            tomSection.visibility = View.VISIBLE
+        // Set basic info
+        bookTitle.text = book.title
+        bookAuthor.text = book.author
+        bookYear.text = book.year
 
-            val volumeNames = volumes.map { "${it.title}" }
-            val volumeAdapter = ArrayAdapter(requireContext(),
-                android.R.layout.simple_spinner_dropdown_item, volumeNames)
-            tomSpinner.adapter = volumeAdapter
-
-            tomSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>?, v: View?, pos: Int, id: Long) {
-                    selectedVolume = volumes[pos]
-                }
-                override fun onNothingSelected(parent: AdapterView<*>?) {}
-            }
-
-            selectedVolume = volumes[0]
-        } else {
-            // SKRYT' Tom section
-            tomSection.visibility = View.GONE
+        // Back button
+        backButton.setOnClickListener {
+            parentFragmentManager.popBackStack()
         }
 
-        // LOGIKA 2: YAZYK (Dil)
-        val translations = book.translations
-        if (translations != null && translations.isNotEmpty()) {
-            if (translations.size == 1) {
-                // ODIN yazyk - prosto tekst
-                languageText.visibility = View.VISIBLE
-                languageSpinner.visibility = View.GONE
-                languageText.text = translations[0].language
-                selectedTranslation = translations[0]
-            } else {
-                // NESKOLKO yazykov - dropdown
-                languageText.visibility = View.GONE
-                languageSpinner.visibility = View.VISIBLE
+        // Setup language
+        setupLanguage(languageSection, languageText, languageSpinner, bookCover, bookPages, tomSection, tomSpinner)
 
-                val langNames = translations.map { it.language }
-                val langAdapter = ArrayAdapter(requireContext(),
-                    android.R.layout.simple_spinner_dropdown_item, langNames)
-                languageSpinner.adapter = langAdapter
+        // Setup volumes (esli est')
+        setupVolumes(tomSection, tomSpinner, bookCover, bookPages)
 
-                languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(parent: AdapterView<*>?, v: View?, pos: Int, id: Long) {
-                        selectedTranslation = translations[pos]
-                    }
-                    override fun onNothingSelected(parent: AdapterView<*>?) {}
-                }
-
-                selectedTranslation = translations[0]
-            }
-        } else {
-            // NET perevodov - prosto yazyk knigi
-            languageText.visibility = View.VISIBLE
-            languageSpinner.visibility = View.GONE
-            languageText.text = book.language
-        }
-
-        // Read Button
+        // Read button
         readButton.setOnClickListener {
-            val pdfPath = when {
-                selectedVolume != null -> selectedVolume!!.pdfPath
-                selectedTranslation != null -> selectedTranslation!!.pdfPath
-                else -> book.pdfPath
-            }
-
-            pdfPath?.let { openPdfReader(it) }
+            openPdfReader()
         }
 
         return view
     }
 
-    private fun openPdfReader(pdfPath: String) {
-        // Otkryt' PDF Reader Fragment s vsemi dannymi
+    private fun setupLanguage(
+        languageSection: LinearLayout,
+        languageText: TextView,
+        languageSpinner: Spinner,
+        bookCover: ImageView,
+        bookPages: TextView,
+        tomSection: LinearLayout,
+        tomSpinner: Spinner
+    ) {
+        val translations = book.translations
+
+        if (translations.size == 1) {
+            // Odin yazyk - prosto tekst
+            languageText.visibility = View.VISIBLE
+            languageSpinner.visibility = View.GONE
+            languageText.text = translations[0].language
+            selectedTranslation = translations[0]
+
+            // Pokazat' cover
+            bookCover.setImageResource(selectedTranslation!!.coverImage)
+
+            // Pokazat' pages
+            updatePages(bookPages)
+        } else {
+            // Neskolko yazykov - dropdown
+            languageText.visibility = View.GONE
+            languageSpinner.visibility = View.VISIBLE
+
+            val langNames = translations.map { it.language }
+            val adapter = ArrayAdapter(requireContext(),
+                android.R.layout.simple_spinner_dropdown_item, langNames)
+            languageSpinner.adapter = adapter
+
+            languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                    selectedTranslation = translations[pos]
+                    selectedVolumeIndex = 0
+
+                    // Izmenit' cover
+                    bookCover.setImageResource(selectedTranslation!!.coverImage)
+
+                    // Izmenit' pages
+                    updatePages(bookPages)
+
+                    // Obnovit' toma
+                    setupVolumes(tomSection, tomSpinner, bookCover, bookPages)
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+
+            selectedTranslation = translations[0]
+            bookCover.setImageResource(selectedTranslation!!.coverImage)
+            updatePages(bookPages)
+        }
+    }
+
+    private fun setupVolumes(
+        tomSection: LinearLayout,
+        tomSpinner: Spinner,
+        bookCover: ImageView,
+        bookPages: TextView
+    ) {
+        val volumes = selectedTranslation?.volumes
+
+        if (volumes != null && volumes.isNotEmpty()) {
+            // Est' toma - pokazat' dropdown
+            tomSection.visibility = View.VISIBLE
+
+            val volumeNames = volumes.map { it.title }
+            val adapter = ArrayAdapter(requireContext(),
+                android.R.layout.simple_spinner_dropdown_item, volumeNames)
+            tomSpinner.adapter = adapter
+
+            tomSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                    selectedVolumeIndex = pos
+
+                    // Izmenit' cover na cover toma
+                    bookCover.setImageResource(volumes[pos].coverImage)
+
+                    // Izmenit' pages NA STRANITSY TOMA
+                    bookPages.text = volumes[pos].pages
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+
+            // Postavit' pervyy tom po umolchaniyu
+            bookCover.setImageResource(volumes[0].coverImage)
+            bookPages.text = volumes[0].pages
+        } else {
+            // Net tomov - skryt' i pokazat' stranitsy perevoda
+            tomSection.visibility = View.GONE
+            bookPages.text = selectedTranslation?.pages ?: "-"
+        }
+    }
+
+
+    private fun updatePages(bookPages: TextView) {
+        val translation = selectedTranslation ?: return
+
+        if (translation.volumes != null && translation.volumes.isNotEmpty()) {
+            val totalPages = translation.volumes.sumOf { it.pages.toIntOrNull() ?: 0 }
+            bookPages.text = totalPages.toString()
+        } else {
+            bookPages.text = "-"
+        }
+    }
+
+    private fun openPdfReader() {
+        val translation = selectedTranslation ?: return
+
+        val pdfPath = if (translation.volumes != null && translation.volumes.isNotEmpty()) {
+            translation.volumes[selectedVolumeIndex].pdfPath
+        } else {
+            translation.pdfPath ?: return
+        }
+
+        val coverImage = if (translation.volumes != null && translation.volumes.isNotEmpty()) {
+            translation.volumes[selectedVolumeIndex].coverImage
+        } else {
+            translation.coverImage
+        }
+
         val pdfFragment = PdfReaderFragment.newInstance(
             pdfPath = pdfPath,
             bookTitle = book.title,
             bookId = book.id,
-            bookCover = book.coverImage
+            bookCover = coverImage
         )
+
         parentFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, pdfFragment)
             .addToBackStack(null)
             .commit()
     }
 }
-
-

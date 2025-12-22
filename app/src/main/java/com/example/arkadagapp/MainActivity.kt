@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.arkadagapp.databinding.ActivityMainBinding
 import com.example.arkadagapp.presentation.home.HomeFragment
@@ -28,10 +29,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        setupStatusBar()
+
 
         // VAZHNO: Chtoby Bottom Navigation ne podnymalasya
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         setContentView(binding.root)
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -58,6 +62,23 @@ class MainActivity : AppCompatActivity() {
             loadFragment(fragment)
             updateBottomNavIcons(item.itemId) // Obnovit' ikonki
             true
+        }
+    }
+
+    // NOVAYA FUNKTSIYA: Ustanovit' tsvet Status Bar
+    private fun setupStatusBar() {
+        window.apply {
+            // Sdelat' Status Bar prozrachnym
+            statusBarColor = ContextCompat.getColor(this@MainActivity, R.color.app_color)
+
+            // Sdelat' Navigation Bar prozrachnym (vnizu)
+//            navigationBarColor = ContextCompat.getColor(this@MainActivity, R.color.navigation_bar_color)
+
+            // Tsvet ikonok v Status Bar (svetlyye ili tёmnyye)
+            WindowCompat.getInsetsController(this, decorView).apply {
+                isAppearanceLightStatusBars = false // false = belye ikonki, true = chёrnye
+                isAppearanceLightNavigationBars = false
+            }
         }
     }
 
