@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color"
+    android:orientation="vertical">
+
+    <!-- Top Bar -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/libre_baskerville"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:text="@string/exam"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray" />
+
+
+    <TextView
+        style="@style/text_white_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_search"
+        android:lineSpacingExtra="3dp"
+        android:paddingVertical="10dp"
+        android:text="Synaglar \nGahryman Arkadagymyzyň\nwe\n Arkadagly Gahryman Serdarymyzyň\n dürdäne eserlerinden bolar"
+        android:textAlignment="center" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_card_quote"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <ImageView
+            android:layout_width="264dp"
+            android:layout_height="368dp"
+            android:layout_gravity="center"
+            android:background="@drawable/arkadag" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_start_test"
+            style="@style/text_white_14"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/read_btn_color"
+            android:text="@string/start"
+            app:cornerRadius="10dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

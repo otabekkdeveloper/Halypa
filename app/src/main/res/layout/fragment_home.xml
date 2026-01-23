@@ -15,7 +15,7 @@
         android:textSize="24sp"
         android:textColor="@color/white"
         android:fontFamily="@font/libre_baskerville"
-        android:padding="16dp"
+        android:paddingBottom="16dp"
         android:gravity="center"/>
 
     <View

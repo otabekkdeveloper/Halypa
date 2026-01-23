@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -58,5 +59,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.tom-roush:pdfbox-android:2.0.27.0")
     implementation("io.github.oothp:android-pdf-viewer:3.2.0-beta05")
 }

@@ -101,11 +101,11 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Jilt:"
-                    style="@style/text_gray"
+                    style="@style/text_gray_14"
                     android:layout_gravity="center_vertical"/>
 
                 <Spinner
-                    style="@style/text_white"
+                    style="@style/text_white_14"
                     android:id="@+id/tom_spinner"
                     android:layout_width="150dp"
                     android:layout_height="30dp"
@@ -126,7 +126,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Dil:"
-                    style="@style/text_gray"
+                    style="@style/text_gray_14"
                     android:layout_gravity="center_vertical"/>
 
                 <!-- ESLI 1 yazyk - prosto TextView -->
@@ -136,12 +136,12 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Türkmen"
-                    style="@style/text_white"
+                    style="@style/text_white_14"
                     android:visibility="visible"/>
 
                 <!-- ESLI neskolko yazykov - Spinner -->
                 <Spinner
-                    style="@style/text_white"
+                    style="@style/text_white_14"
                     android:id="@+id/language_spinner"
                     android:layout_width="150dp"
                     android:layout_height="30dp"
@@ -162,7 +162,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Awtor:"
-                    style="@style/text_gray"/>
+                    style="@style/text_gray_14"/>
 
                 <TextView
                     android:id="@+id/detail_author"
@@ -170,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Gurbanguly Berdimuhamedow"
-                    style="@style/text_white"/>
+                    style="@style/text_white_14"/>
             </LinearLayout>
 
             <!-- Year -->
@@ -184,7 +184,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Ýyl:"
-                    style="@style/text_gray"/>
+                    style="@style/text_gray_14"/>
 
                 <TextView
                     android:id="@+id/detail_year"
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="2021"
-                    style="@style/text_white"/>
+                    style="@style/text_white_14"/>
             </LinearLayout>
 
             <!-- Pages -->
@@ -205,7 +205,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Sahypa:"
-                    style="@style/text_gray"/>
+                    style="@style/text_gray_14"/>
 
                 <TextView
                     android:id="@+id/detail_pages"
@@ -213,7 +213,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="344"
-                    style="@style/text_white"/>
+                    style="@style/text_white_14"/>
             </LinearLayout>
         </LinearLayout>
 

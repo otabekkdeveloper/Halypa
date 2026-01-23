@@ -1,9 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.ArkadagApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Dark Theme -->
+    <style name="AppTheme.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/app_color</item>
+        <item name="android:navigationBarColor">@color/app_color</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
 
-    <style name="Theme.ArkadagApp" parent="Base.Theme.ArkadagApp" />
+    <!-- Light Theme -->
+    <style name="AppTheme.Light" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/app_color</item>
+        <item name="android:navigationBarColor">@color/app_color</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+    </style>
+
+    <!-- Default Theme (Dark) -->
+    <style name="AppTheme" parent="AppTheme.Dark"/>
 </resources>

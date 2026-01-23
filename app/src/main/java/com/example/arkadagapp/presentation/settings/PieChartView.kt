@@ -18,7 +18,7 @@ class PieChartView @JvmOverloads constructor(
     private var progress: Int = 0
 
     private val backgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = ContextCompat.getColor(context, R.color.dark_gray) // #1E293B
+        color = ContextCompat.getColor(context, R.color.app_color) // #1E293B
         style = Paint.Style.FILL
     }
 

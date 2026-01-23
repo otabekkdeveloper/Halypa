@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.Spinner
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
@@ -14,15 +16,15 @@ import com.example.arkadagapp.R
 import com.example.arkadagapp.model.BookProgress
 import com.example.arkadagapp.presentation.pdfReader.ReadingProgressAdapter
 import com.example.arkadagapp.presentation.reader.PdfReaderFragment
+import com.example.arkadagapp.presentation.settings.favoriteQuotesFragment.FavoriteQuotesFragment
 import com.example.arkadagapp.utils.BookmarkManager
-import com.example.arkadagapp.utils.ThemeManager
-import com.example.arkadagapp.utils.ThemePrefs
+import com.example.arkadagapp.utils.LocaleHelper
+import com.example.arkadagapp.utils.ThemeHelper
 
 class SettingsFragment : Fragment() {
 
     private lateinit var progressRecycler: RecyclerView
     private lateinit var languageSpinner: Spinner
-
     private lateinit var themeSwitch: SwitchCompat
     private lateinit var bookmarkManager: BookmarkManager
 
@@ -37,51 +39,94 @@ class SettingsFragment : Fragment() {
         languageSpinner = view.findViewById(R.id.language_spinner)
         themeSwitch = view.findViewById(R.id.theme_switch)
         bookmarkManager = BookmarkManager(requireContext())
+
         progressRecycler.layoutManager = LinearLayoutManager(context)
-        // Инициализация
-        val currentTheme = ThemePrefs.load(requireContext())
-        themeSwitch.isChecked = currentTheme == ThemeManager.MODE_DARK
-
-        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            val mode = if (isChecked)
-                ThemeManager.MODE_DARK
-            else
-                ThemeManager.MODE_LIGHT
-
-            ThemePrefs.save(requireContext(), mode)
-            ThemeManager.applyTheme(mode)
-        }
-
 
         setupLanguageSpinner()
         loadReadingProgress()
+//        setupThemeSwitch()
 
-
-
+        // Favorite Quotes Button
+        val favoriteQuotesButton = view.findViewById<LinearLayout>(R.id.favorite_quotes_button)
+        favoriteQuotesButton.setOnClickListener {
+            val fragment = FavoriteQuotesFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
 
         return view
     }
+    private fun setupThemeSwitch() {
+        val isDark = ThemeHelper.isDarkTheme(requireContext())
+        themeSwitch.isChecked = isDark
 
+        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            val newTheme = if (isChecked) ThemeHelper.THEME_DARK else ThemeHelper.THEME_LIGHT
+            ThemeHelper.setTheme(requireContext(), newTheme)
+
+            // ✅ Перезапустить с анимацией
+            requireActivity().recreate()
+        }
+    }
     private fun setupLanguageSpinner() {
         val languages = arrayOf("Türkmen", "Русский", "English")
+        val languageCodes = arrayOf("tk", "ru", "en")
 
-        // Kastomnyy adapter
         val adapter = ArrayAdapter(
             requireContext(),
-            R.layout.spinner_item, // Kastomnyy layout dlya vybrannogo elementa
+            R.layout.spinner_item,
             languages
         )
 
-        // Kastomnyy layout dlya dropdown
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
-
         languageSpinner.adapter = adapter
+
+        // ✅ Установить текущий выбранный язык
+        val currentLanguage = LocaleHelper.getLocale(requireContext())
+        val position = languageCodes.indexOf(currentLanguage)
+        if (position != -1) {
+            languageSpinner.setSelection(position)
+        }
+
+        languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            private var isFirstSelection = true // Чтобы не срабатывало при первой загрузке
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (isFirstSelection) {
+                    isFirstSelection = false
+                    return
+                }
+
+                val selectedLanguageCode = languageCodes[position]
+                val currentLanguage = LocaleHelper.getLocale(requireContext())
+
+                if (selectedLanguageCode != currentLanguage) {
+                    // Сохранить новый язык
+                    LocaleHelper.setLocale(requireContext(), selectedLanguageCode)
+
+                    // ✅ Плавная анимация перезапуска
+                    val intent = requireActivity().intent
+                    requireActivity().finish()
+                    startActivity(intent)
+
+                    // ✅ Плавная fade анимация
+                    requireActivity().overridePendingTransition(
+                        android.R.anim.fade_in,  // входящая анимация
+                        android.R.anim.fade_out  // исходящая анимация
+                    )
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
     }
 
     private fun loadReadingProgress() {
         val allProgress = bookmarkManager.getAllBooksProgress()
-            .filter { it.progress > 0 } // Pokazat' tolko nachavshiesya knigi
-            .sortedByDescending { it.progress } // Sortirovka po progressu
+            .filter { it.progress > 0 }
+            .sortedByDescending { it.progress }
 
         val adapter = ReadingProgressAdapter(allProgress) { bookProgress ->
             openBookFromProgress(bookProgress)
@@ -90,20 +135,17 @@ class SettingsFragment : Fragment() {
     }
 
     private fun openBookFromProgress(bookProgress: BookProgress) {
-        // Otkryt' knigu s sohranennym progressom
         val pdfFragment = PdfReaderFragment.newInstance(
             pdfPath = bookProgress.pdfPath,
             bookTitle = bookProgress.title,
             bookId = bookProgress.bookId,
-            bookCover = bookProgress.coverImage
+            bookCover = bookProgress.coverImage,
+            startPage = bookProgress.currentPage
         )
+
         parentFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, pdfFragment)
             .addToBackStack(null)
             .commit()
     }
-
-
-
-
 }

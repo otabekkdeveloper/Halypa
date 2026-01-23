@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HalypaApp</string>
+    <string name="hello_blank_fragment">Привет пустой фрагмент</string>
+    <string name="quotes">Сборник цитат</string>
+    <string name="search">Поиск...</string>
+    <string name="exam">Экзамен</string>
+    <string name="start">Начать</string>
+    <string name="settings">Настройки</string>
+    <string name="language">Язык</string>
+    <string name="reading_progress">Прогресс чтения</string>
+    <string name="favorite_quotes">Избранные цитаты</string>
+    <string name="page">страница</string>
+</resources>

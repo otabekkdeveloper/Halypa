@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color">
+    android:background="@color/app_color"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
 
         <!-- Header -->
         <TextView
@@ -17,23 +17,23 @@
             android:layout_height="wrap_content"
             android:text="Sazlamalar"
             android:textSize="24sp"
-            android:paddingTop="12dp"
+            android:paddingBottom="16dp"
             android:fontFamily="@font/libre_baskerville"
             android:textColor="@color/white"
             android:gravity="center" />
 
         <View
-            android:layout_marginTop="6dp"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="@color/gray"/>
 
+        <!-- Language -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -50,7 +50,7 @@
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"/>
 
             <Spinner
@@ -62,22 +62,19 @@
                 android:paddingEnd="36dp"
                 android:spinnerMode="dropdown"
                 android:dropDownVerticalOffset="48dp"/>
-
-
         </LinearLayout>
 
         <View
-            android:layout_marginTop="6dp"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="@color/gray"/>
 
-
+        <!-- Theme -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
-            android:paddingVertical="6dp"
+            android:paddingVertical="12dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -95,7 +92,7 @@
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"/>
 
             <ImageView
@@ -116,7 +113,6 @@
                 android:src="@drawable/ic_moon"
                 android:layout_marginStart="16dp"
                 app:tint="@color/white" />
-
         </LinearLayout>
 
         <View
@@ -124,32 +120,6 @@
             android:layout_height="0.5dp"
             android:background="@color/gray"/>
 
-        <!-- Reading Progress Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dowam et"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:paddingHorizontal="10dp"
-            android:layout_marginTop="18dp"
-            android:fontFamily="@font/libre_baskerville"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:drawableStart="@drawable/ic_book_open"
-            android:drawablePadding="8dp"/>
-
-        <View
-            android:layout_marginTop="6dp"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/gray"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/progress_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"/>
 
         <!-- Statistics -->
         <TextView
@@ -163,16 +133,17 @@
             android:textStyle="bold"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="24dp"
+            android:paddingVertical="6dp"
             android:drawableStart="@drawable/ic_test"
             android:drawablePadding="8dp"/>
 
         <View
-            android:layout_marginTop="6dp"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="@color/gray"/>
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -184,15 +155,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:background="@drawable/bg_card"
+                android:background="@drawable/bg_search"
                 android:padding="16dp"
                 android:layout_marginEnd="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tamamlanan\nsynaglar"
-                    style="@style/text_gray"/>
+                    android:layout_gravity="center"
+                    android:text="Saýlanan\nkitaplar"
+                    style="@style/text_gray_14"/>
 
                 <TextView
                     android:id="@+id/completed_count"
@@ -201,68 +173,71 @@
                     android:text="5"
                     android:fontFamily="@font/libre_baskerville"
                     android:textColor="@color/blue"
-                    android:textSize="32sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/favorite_quotes_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/bg_search"
                 android:orientation="vertical"
-                android:background="@drawable/bg_card"
                 android:padding="16dp"
-                android:layout_marginStart="8dp">
+                android:clickable="true"
+                android:focusable="true">
 
                 <TextView
-                    style="@style/text_gray"
+                    style="@style/text_gray_14"
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Saýlanan\nsitatalar"
-                    android:textColor="#71717A"
-                    android:textSize="14sp"/>
+                    android:text="Saýlanan\nsitatalar"/>
 
                 <TextView
                     android:id="@+id/quotes_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="@font/libre_baskerville"
+                    android:text="10"
                     android:textColor="@color/blue"
-                    android:textSize="32sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <!-- Reading Progress Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dowam et"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/libre_baskerville"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableStart="@drawable/ic_book_open"
+            android:drawablePadding="8dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/progress_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginHorizontal="10dp"
-            android:background="@drawable/bg_card"
-            android:padding="16dp">
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"/>
 
-            <TextView
-                style="@style/text_gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saýlanan kitaplar"
-                android:textColor="#71717A"
-                android:textSize="14sp"/>
-
-            <TextView
-                android:id="@+id/books_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="17"
-                android:fontFamily="@font/libre_baskerville"
-                android:textColor="@color/blue"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

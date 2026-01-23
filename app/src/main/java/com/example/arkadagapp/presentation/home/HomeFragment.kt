@@ -21,6 +21,7 @@ import com.example.arkadagapp.model.BookTranslation
 import com.example.arkadagapp.model.Volume
 import com.example.arkadagapp.presentation.detail.BookDetailFragment
 import com.example.arkadagapp.presentation.home.adapter.BookAdapter
+import com.example.arkadagapp.utils.SearchManager
 
 class HomeFragment : Fragment() {
 
@@ -264,9 +265,41 @@ class HomeFragment : Fragment() {
                     )
                 )
             )
+
         ))
 
-
+        books.add(Book(
+            id = 5,
+            title = "Dowlet gushy",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.banner_5,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    pages = "830",
+                    coverImage = R.drawable.banner_5,
+                    pdfPath = "books/5/döwlet_guşy.pdf"
+                )
+            )
+        ))
+    books.add(Book(
+            id = 6,
+            title = "Omrumin manysy",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.banner_6,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    pages = "830",
+                    coverImage = R.drawable.banner_6,
+                    pdfPath = "books/6/omrümiň_manysy.pdf"
+                )
+            )
+        ))
 
 
 
@@ -714,7 +747,7 @@ class HomeFragment : Fragment() {
 //                Translation("Русский", null, "books/tm_1.pdf")
 //            )
 //        ))
-
+        SearchManager.setBooks(books)
     }
 
     private fun openBookDetail(book: Book) {

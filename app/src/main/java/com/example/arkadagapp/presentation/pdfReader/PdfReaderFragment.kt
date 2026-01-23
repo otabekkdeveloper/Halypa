@@ -34,14 +34,16 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
         private const val ARG_BOOK_TITLE = "book_title"
         private const val ARG_BOOK_ID = "book_id"
         private const val ARG_BOOK_COVER = "book_cover"
+        private const val ARG_START_PAGE = "start_page" // NOVOE
 
-        fun newInstance(pdfPath: String, bookTitle: String, bookId: Int, bookCover: Int): PdfReaderFragment {
+        fun newInstance(pdfPath: String, bookTitle: String, bookId: Int, bookCover: Int,  startPage: Int = 0): PdfReaderFragment {
             val fragment = PdfReaderFragment()
             val args = Bundle()
             args.putString(ARG_PDF_PATH, pdfPath)
             args.putString(ARG_BOOK_TITLE, bookTitle)
             args.putInt(ARG_BOOK_ID, bookId)
             args.putInt(ARG_BOOK_COVER, bookCover)
+            args.putInt(ARG_START_PAGE, startPage) // NOVOE
             fragment.arguments = args
             return fragment
         }
@@ -53,7 +55,7 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
         bookTitle = arguments?.getString(ARG_BOOK_TITLE) ?: ""
         bookId = arguments?.getInt(ARG_BOOK_ID) ?: 0
         bookCoverImage = arguments?.getInt(ARG_BOOK_COVER) ?: R.drawable.placeholder
-
+        currentPage = arguments?.getInt(ARG_START_PAGE) ?: 0 // NOVOE
         bookmarkManager = BookmarkManager(requireContext())
     }
 

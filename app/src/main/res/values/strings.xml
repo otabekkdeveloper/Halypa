@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">HalypaApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quotes">Sitatalar toplumy</string>
+    <string name="search">Gözleg...</string>
+    <string name="exam">Synag</string>
+    <string name="start">Başla</string>
+    <string name="settings">Sazlamalar</string>
+    <string name="language">Dil</string>
+    <string name="reading_progress">Okamak ilerlemegi</string>
+    <string name="favorite_quotes">Halanýan sitatalar</string>
+    <string name="page">sahypa</string>
 </resources>

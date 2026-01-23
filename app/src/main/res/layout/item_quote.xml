@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card_quote"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Quote Text -->
+    <TextView
+        android:id="@+id/quote_text"
+        style="@style/text_white_14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/app_name" />
+
+    <!-- Source -->
+    <TextView
+        android:id="@+id/quote_source"
+        style="@style/text_gray_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/hello_blank_fragment" />
+
+    <!-- Actions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <!-- Copy Button -->
+        <ImageView
+            android:id="@+id/btn_copy"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:src="@drawable/ic_copy"
+            app:tint="#3B82F6" />
+
+        <!-- Like Button -->
+        <ImageView
+            android:id="@+id/btn_like"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:src="@drawable/ic_heart_outline"
+            app:tint="#71717A" />
+    </LinearLayout>
+
+</LinearLayout>
