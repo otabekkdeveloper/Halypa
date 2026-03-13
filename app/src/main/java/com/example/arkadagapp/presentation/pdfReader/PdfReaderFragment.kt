@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.arkadagapp.R
 import com.example.arkadagapp.utils.BookmarkManager
+import com.example.arkadagapp.utils.LikeManager
 import com.github.barteksc.pdfviewer.PDFView
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,8 +19,9 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
 
     private lateinit var pdfView: PDFView
     private lateinit var pageNumber: TextView
-    private lateinit var bookmarkButton: ImageButton
+    private lateinit var likeButton: ImageButton
     private lateinit var bookmarkManager: BookmarkManager
+    private lateinit var likeManager: LikeManager
 
     private var pdfPath: String = ""
     private var bookTitle: String = ""
@@ -27,23 +29,22 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
     private var bookCoverImage: Int = 0
     private var currentPage: Int = 0
     private var totalPages: Int = 0
-    private var isBookmarked: Boolean = false
 
     companion object {
         private const val ARG_PDF_PATH = "pdf_path"
         private const val ARG_BOOK_TITLE = "book_title"
         private const val ARG_BOOK_ID = "book_id"
         private const val ARG_BOOK_COVER = "book_cover"
-        private const val ARG_START_PAGE = "start_page" // NOVOE
+        private const val ARG_START_PAGE = "start_page"
 
-        fun newInstance(pdfPath: String, bookTitle: String, bookId: Int, bookCover: Int,  startPage: Int = 0): PdfReaderFragment {
+        fun newInstance(pdfPath: String, bookTitle: String, bookId: Int, bookCover: Int, startPage: Int = 0): PdfReaderFragment {
             val fragment = PdfReaderFragment()
             val args = Bundle()
             args.putString(ARG_PDF_PATH, pdfPath)
             args.putString(ARG_BOOK_TITLE, bookTitle)
             args.putInt(ARG_BOOK_ID, bookId)
             args.putInt(ARG_BOOK_COVER, bookCover)
-            args.putInt(ARG_START_PAGE, startPage) // NOVOE
+            args.putInt(ARG_START_PAGE, startPage)
             fragment.arguments = args
             return fragment
         }
@@ -55,8 +56,9 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
         bookTitle = arguments?.getString(ARG_BOOK_TITLE) ?: ""
         bookId = arguments?.getInt(ARG_BOOK_ID) ?: 0
         bookCoverImage = arguments?.getInt(ARG_BOOK_COVER) ?: R.drawable.placeholder
-        currentPage = arguments?.getInt(ARG_START_PAGE) ?: 0 // NOVOE
+        currentPage = arguments?.getInt(ARG_START_PAGE) ?: 0
         bookmarkManager = BookmarkManager(requireContext())
+        likeManager = LikeManager(requireContext())
     }
 
     override fun onCreateView(
@@ -68,7 +70,7 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
 
         pdfView = view.findViewById(R.id.pdf_view)
         pageNumber = view.findViewById(R.id.page_number)
-        bookmarkButton = view.findViewById(R.id.bookmark_button)
+        likeButton = view.findViewById(R.id.like_button)
 
         view.findViewById<TextView>(R.id.book_title).text = bookTitle
 
@@ -78,10 +80,10 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
             parentFragmentManager.popBackStack()
         }
 
-        // Bookmark button
-        updateBookmarkIcon()
-        bookmarkButton.setOnClickListener {
-            toggleBookmark()
+        // Like button
+        updateLikeIcon()
+        likeButton.setOnClickListener {
+            toggleLike()
         }
 
         // Zagruzit' sohranennuyu stranitsu
@@ -102,7 +104,6 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
                 .onPageChange(this)
                 .onLoad { nbPages ->
                     totalPages = nbPages
-                    // Obnovit' total pages
                     saveCurrentProgress()
                 }
                 .enableSwipe(true)
@@ -121,39 +122,32 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
         currentPage = page
         totalPages = pageCount
         pageNumber.text = "${page + 1}"
-
-        // Avtomaticheski sohranit' progress
         saveCurrentProgress()
-        updateBookmarkIcon()
     }
 
     private fun saveCurrentProgress() {
         bookmarkManager.saveProgress(bookId, currentPage, totalPages)
     }
 
-    private fun toggleBookmark() {
-        isBookmarked = !isBookmarked
-        updateBookmarkIcon()
+    private fun toggleLike() {
+        likeManager.toggleLike(bookId)
+        updateLikeIcon()
 
-        val progress = bookmarkManager.getProgress(bookId)
-        val message = if (isBookmarked) {
-            "Bellik goşuldy: $progress%"
+        val message = if (likeManager.isLiked(bookId)) {
+            "Halan kitaplara goşuldy ❤️"
         } else {
-            "Bellik: $progress%"
+            "Halan kitaplardan aýryldy"
         }
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun updateBookmarkIcon() {
-        val progress = bookmarkManager.getProgress(bookId)
-        isBookmarked = progress > 0
-
-        val icon = if (isBookmarked) {
-            R.drawable.ic_bookmark_filled
+    private fun updateLikeIcon() {
+        val icon = if (likeManager.isLiked(bookId)) {
+            R.drawable.ic_like_bold
         } else {
-            R.drawable.ic_bookmark
+            R.drawable.ic_like
         }
-        bookmarkButton.setImageResource(icon)
+        likeButton.setImageResource(icon)
     }
 
     override fun onPause() {
@@ -165,6 +159,7 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
     override fun onResume() {
         super.onResume()
         activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
+        updateLikeIcon()
     }
 
     override fun onDestroy() {

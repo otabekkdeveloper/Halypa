@@ -280,7 +280,7 @@ class HomeFragment : Fragment() {
                     translator = null,
                     pages = "830",
                     coverImage = R.drawable.banner_5,
-                    pdfPath = "books/5/döwlet_guşy.pdf"
+                    pdfPath = "books/5/1.pdf"
                 )
             )
         ))
@@ -296,7 +296,7 @@ class HomeFragment : Fragment() {
                     translator = null,
                     pages = "830",
                     coverImage = R.drawable.banner_6,
-                    pdfPath = "books/6/omrümiň_manysy.pdf"
+                    pdfPath = "books/6/1.pdf"
                 )
             )
         ))

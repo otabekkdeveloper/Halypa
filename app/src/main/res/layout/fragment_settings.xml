@@ -124,6 +124,7 @@
         <!-- Statistics -->
         <TextView
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:text="Synaglar"
             android:gravity="center"
@@ -139,6 +140,8 @@
 
         <View
             android:layout_width="match_parent"
+
+            android:visibility="gone"
             android:layout_height="0.5dp"
             android:background="@color/gray"/>
 
@@ -151,6 +154,7 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:id="@+id/favorite_books_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

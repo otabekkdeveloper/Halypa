@@ -1,5 +1,6 @@
 package com.example.arkadagapp.presentation.settings
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,9 +18,11 @@ import com.example.arkadagapp.R
 import com.example.arkadagapp.model.BookProgress
 import com.example.arkadagapp.presentation.pdfReader.ReadingProgressAdapter
 import com.example.arkadagapp.presentation.reader.PdfReaderFragment
+import com.example.arkadagapp.presentation.settings.favoriteBooksFragment.FavoriteBooksFragment
 import com.example.arkadagapp.presentation.settings.favoriteQuotesFragment.FavoriteQuotesFragment
 import com.example.arkadagapp.utils.BookmarkManager
 import com.example.arkadagapp.utils.LocaleHelper
+import com.example.arkadagapp.utils.QuotesManager
 import com.example.arkadagapp.utils.ThemeHelper
 
 class SettingsFragment : Fragment() {
@@ -28,6 +32,7 @@ class SettingsFragment : Fragment() {
     private lateinit var themeSwitch: SwitchCompat
     private lateinit var bookmarkManager: BookmarkManager
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,8 +61,31 @@ class SettingsFragment : Fragment() {
                 .commit()
         }
 
+        val favoriteBooks = view.findViewById<LinearLayout>(R.id.favorite_books_button)
+        favoriteBooks?.setOnClickListener {
+            val fragment = FavoriteBooksFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+
+
+
+
+
         return view
     }
+
+    override fun onResume() {
+        super.onResume()
+        val quotesCount = view?.findViewById<TextView>(R.id.quotes_count)
+        quotesCount?.text = QuotesManager.getFavoriteQuotes().size.toString()
+
+    }
+
+
     private fun setupThemeSwitch() {
         val isDark = ThemeHelper.isDarkTheme(requireContext())
         themeSwitch.isChecked = isDark
