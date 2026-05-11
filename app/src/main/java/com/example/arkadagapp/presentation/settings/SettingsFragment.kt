@@ -44,7 +44,6 @@ class SettingsFragment : Fragment() {
         languageSpinner = view.findViewById(R.id.language_spinner)
         themeSwitch = view.findViewById(R.id.theme_switch)
         bookmarkManager = BookmarkManager(requireContext())
-
         progressRecycler.layoutManager = LinearLayoutManager(context)
 
         setupLanguageSpinner()

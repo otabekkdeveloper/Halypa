@@ -198,75 +198,75 @@ class HomeFragment : Fragment() {
         ))
 
 
-        // KNIGA 4: Neskolko yazykov I RAZNYE TOMA
-        books.add(Book(
-            id = 4,
-            title = "Ösüşiň Täze Belentliklerine Tarap",
-            author = "Gurbanguly Berdimuhamedow",
-            year = "2023",
-            coverImage = R.drawable.banner_4,
-            translations = listOf(
-                // Turkmenskiy - 2 toma
-                BookTranslation(
-                    language = "Türkmen",
-                    coverImage = R.drawable.banner_4,
-                    pages = "830", // 450 + 380
-                    volumes = listOf(
-                        Volume(1, "Tom 1", "450", R.drawable.four_4_1, "books/4/tm/four_4_1.pdf"),
-                        Volume(2, "Tom 2", "450", R.drawable.four_4_2, "books/4/tm/four_4_2.pdf"),
-                        Volume(3, "Tom 3", "450", R.drawable.four_4_3, "books/4/tm/four_4_3.pdf"),
-                        Volume(4, "Tom 4", "450", R.drawable.four_4_4, "books/4/tm/four_4_4.pdf"),
-                        Volume(5, "Tom 5", "450", R.drawable.four_4_5, "books/4/tm/four_4_5.pdf"),
-                        Volume(6, "Tom 6", "450", R.drawable.four_4_6, "books/4/tm/four_4_6.pdf"),
-                        Volume(7, "Tom 7", "450", R.drawable.four_4_7, "books/4/tm/four_4_7.pdf"),
-                        Volume(8, "Tom 8", "450", R.drawable.four_4_8, "books/4/tm/four_4_8.pdf"),
-                        Volume(9, "Tom 9", "450", R.drawable.four_4_9, "books/4/tm/four_4_9.pdf"),
-                        Volume(10, "Tom 10", "450", R.drawable.four_4_10, "books/4/tm/four_4_10.pdf"),
-                        Volume(11, "Tom 11", "380", R.drawable.four_4_11, "books/4/tm/four_4_11.pdf")
-                    )
-                ),
-                // Russkiy - 3 toma
-                BookTranslation(
-                    language = "Русский",
-                    translator = "Gurbanguly Berdimuhamedow",
-                    coverImage = R.drawable.four_ru_4_1,
-                    pages = "1160", // 420 + 390 + 350
-                    volumes = listOf(
-                        Volume(1, "Tom 1", "450", R.drawable.four_ru_4_1, "books/4/ru/1.pdf"),
-                        Volume(2, "Tom 2", "450", R.drawable.four_ru_4_2, "books/4/ru/2.pdf"),
-                        Volume(3, "Tom 3", "450", R.drawable.four_ru_4_3, "books/4/ru/3.pdf"),
-                        Volume(4, "Tom 4", "450", R.drawable.four_ru_4_4, "books/4/ru/4.pdf"),
-                        Volume(5, "Tom 5", "450", R.drawable.four_ru_4_5, "books/4/ru/5.pdf"),
-                        Volume(6, "Tom 6", "450", R.drawable.four_ru_4_6, "books/4/ru/6.pdf"),
-                        Volume(7, "Tom 7", "450", R.drawable.four_ru_4_7, "books/4/ru/7.pdf"),
-                        Volume(8, "Tom 8", "450", R.drawable.four_ru_4_8, "books/4/ru/8.pdf"),
-                        Volume(9, "Tom 9", "450", R.drawable.four_ru_4_9, "books/4/ru/9.pdf"),
-                        Volume(10, "Tom 10", "450", R.drawable.four_ru_4_10, "books/4/ru/10.pdf"),
-                        Volume(11, "Tom 11", "380", R.drawable.four_ru_4_11, "books/4/ru/11.pdf")
-                    )
-                ),
-                // Angliyskiy - 2 toma
-                BookTranslation(
-                    language = "English",
-                    translator = "Gurbanguly Berdimuhamedow",
-                    coverImage = R.drawable.four_en_4_2,
-                    pages = "770", // 400 + 370
-                    volumes = listOf(
-                        Volume(2, "Tom 2", "450", R.drawable.four_en_4_2, "books/4/en/2.pdf"),
-                        Volume(3, "Tom 3", "450", R.drawable.four_en_4_3, "books/4/en/3.pdf"),
-                        Volume(4, "Tom 4", "450", R.drawable.four_en_4_4, "books/4/en/4.pdf"),
-                        Volume(5, "Tom 5", "450", R.drawable.four_en_4_5, "books/4/en/5.pdf"),
-                        Volume(6, "Tom 6", "450", R.drawable.four_en_4_6, "books/4/en/6.pdf"),
-                        Volume(7, "Tom 7", "450", R.drawable.four_en_4_7, "books/4/en/7.pdf"),
-                        Volume(8, "Tom 8", "450", R.drawable.four_en_4_8, "books/4/en/8.pdf"),
-                        Volume(9, "Tom 9", "450", R.drawable.four_en_4_9, "books/4/en/9.pdf"),
-                        Volume(10, "Tom 10", "450", R.drawable.four_en_4_10, "books/4/en/10.pdf"),
-                        Volume(11, "Tom 11", "380", R.drawable.four_en_4_11, "books/4/en/11.pdf")
-                    )
-                )
-            )
-
-        ))
+        // KNIGA 4:Ösüşiň Täze Belentliklerine Tarap
+//        books.add(Book(
+//            id = 4,
+//            title = "Ösüşiň Täze Belentliklerine Tarap",
+//            author = "Gurbanguly Berdimuhamedow",
+//            year = "2023",
+//            coverImage = R.drawable.banner_4,
+//            translations = listOf(
+//                // Turkmenskiy - 2 toma
+//                BookTranslation(
+//                    language = "Türkmen",
+//                    coverImage = R.drawable.banner_4,
+//                    pages = "830", // 450 + 380
+//                    volumes = listOf(
+//                        Volume(1, "Tom 1", "450", R.drawable.four_4_1, "books/4/tm/four_4_1.pdf"),
+//                        Volume(2, "Tom 2", "450", R.drawable.four_4_2, "books/4/tm/four_4_2.pdf"),
+//                        Volume(3, "Tom 3", "450", R.drawable.four_4_3, "books/4/tm/four_4_3.pdf"),
+//                        Volume(4, "Tom 4", "450", R.drawable.four_4_4, "books/4/tm/four_4_4.pdf"),
+//                        Volume(5, "Tom 5", "450", R.drawable.four_4_5, "books/4/tm/four_4_5.pdf"),
+//                        Volume(6, "Tom 6", "450", R.drawable.four_4_6, "books/4/tm/four_4_6.pdf"),
+//                        Volume(7, "Tom 7", "450", R.drawable.four_4_7, "books/4/tm/four_4_7.pdf"),
+//                        Volume(8, "Tom 8", "450", R.drawable.four_4_8, "books/4/tm/four_4_8.pdf"),
+//                        Volume(9, "Tom 9", "450", R.drawable.four_4_9, "books/4/tm/four_4_9.pdf"),
+//                        Volume(10, "Tom 10", "450", R.drawable.four_4_10, "books/4/tm/four_4_10.pdf"),
+//                        Volume(11, "Tom 11", "380", R.drawable.four_4_11, "books/4/tm/four_4_11.pdf")
+//                    )
+//                ),
+//                // Russkiy - 3 toma
+//                BookTranslation(
+//                    language = "Русский",
+//                    translator = "Gurbanguly Berdimuhamedow",
+//                    coverImage = R.drawable.four_ru_4_1,
+//                    pages = "1160", // 420 + 390 + 350
+//                    volumes = listOf(
+//                        Volume(1, "Tom 1", "450", R.drawable.four_ru_4_1, "books/4/ru/1.pdf"),
+//                        Volume(2, "Tom 2", "450", R.drawable.four_ru_4_2, "books/4/ru/2.pdf"),
+//                        Volume(3, "Tom 3", "450", R.drawable.four_ru_4_3, "books/4/ru/3.pdf"),
+//                        Volume(4, "Tom 4", "450", R.drawable.four_ru_4_4, "books/4/ru/4.pdf"),
+//                        Volume(5, "Tom 5", "450", R.drawable.four_ru_4_5, "books/4/ru/5.pdf"),
+//                        Volume(6, "Tom 6", "450", R.drawable.four_ru_4_6, "books/4/ru/6.pdf"),
+//                        Volume(7, "Tom 7", "450", R.drawable.four_ru_4_7, "books/4/ru/7.pdf"),
+//                        Volume(8, "Tom 8", "450", R.drawable.four_ru_4_8, "books/4/ru/8.pdf"),
+//                        Volume(9, "Tom 9", "450", R.drawable.four_ru_4_9, "books/4/ru/9.pdf"),
+//                        Volume(10, "Tom 10", "450", R.drawable.four_ru_4_10, "books/4/ru/10.pdf"),
+//                        Volume(11, "Tom 11", "380", R.drawable.four_ru_4_11, "books/4/ru/11.pdf")
+//                    )
+//                ),
+//                // Angliyskiy - 2 toma
+//                BookTranslation(
+//                    language = "English",
+//                    translator = "Gurbanguly Berdimuhamedow",
+//                    coverImage = R.drawable.four_en_4_2,
+//                    pages = "770", // 400 + 370
+//                    volumes = listOf(
+//                        Volume(2, "Tom 2", "450", R.drawable.four_en_4_2, "books/4/en/2.pdf"),
+//                        Volume(3, "Tom 3", "450", R.drawable.four_en_4_3, "books/4/en/3.pdf"),
+//                        Volume(4, "Tom 4", "450", R.drawable.four_en_4_4, "books/4/en/4.pdf"),
+//                        Volume(5, "Tom 5", "450", R.drawable.four_en_4_5, "books/4/en/5.pdf"),
+//                        Volume(6, "Tom 6", "450", R.drawable.four_en_4_6, "books/4/en/6.pdf"),
+//                        Volume(7, "Tom 7", "450", R.drawable.four_en_4_7, "books/4/en/7.pdf"),
+//                        Volume(8, "Tom 8", "450", R.drawable.four_en_4_8, "books/4/en/8.pdf"),
+//                        Volume(9, "Tom 9", "450", R.drawable.four_en_4_9, "books/4/en/9.pdf"),
+//                        Volume(10, "Tom 10", "450", R.drawable.four_en_4_10, "books/4/en/10.pdf"),
+//                        Volume(11, "Tom 11", "380", R.drawable.four_en_4_11, "books/4/en/11.pdf")
+//                    )
+//                )
+//            )
+//
+//        ))
 
         books.add(Book(
             id = 5,
@@ -301,452 +301,6 @@ class HomeFragment : Fragment() {
             )
         ))
 
-
-
-
-
-//
-//        books.add(Book(
-//            id = 1,
-//            title = "Beýik Özgertmeleriň Ýyl Ýazgylary",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "344",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            pdfPath = "books/tm_1.pdf"
-//        ))
-//
-//        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
-//        books.add(Book(
-//            id = 2,
-//            title = "Türkmenistanyň dermanlyk ösümlikleri",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "1200",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf"),
-//                Volume(3, "Tom 3", "400", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
-//        books.add(Book(
-//            id = 3,
-//            title = "Ruhnama",
-//            author = "Saparmyrat Nyýazow",
-//            year = "2001",
-//            pages = "400",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", "Переводчик А.", "books/tm_1.pdf"),
-//                Translation("English", "Translator B.", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
-//        books.add(Book(
-//            id = 4,
-//            title = "Täze eýýamyň bosagasynda",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2023",
-//            pages = "800",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf")
-//            ),
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", null, "books/tm_1.pdf")
-//            )
-//        ))
-//
-//
-//        books.add(Book(
-//            id = 1,
-//            title = "Ak şäherim Aşgabat",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "344",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            pdfPath = "books/tm_1.pdf"
-//        ))
-//
-//        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
-//        books.add(Book(
-//            id = 2,
-//            title = "Türkmenistanyň dermanlyk ösümlikleri",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "1200",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf"),
-//                Volume(3, "Tom 3", "400", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
-//        books.add(Book(
-//            id = 3,
-//            title = "Ruhnama",
-//            author = "Saparmyrat Nyýazow",
-//            year = "2001",
-//            pages = "400",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", "Переводчик А.", "books/tm_1.pdf"),
-//                Translation("English", "Translator B.", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
-//        books.add(Book(
-//            id = 4,
-//            title = "Täze eýýamyň bosagasynda",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2023",
-//            pages = "800",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf")
-//            ),
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", null, "books/tm_1.pdf")
-//            )
-//        ))
-//
-//
-//        books.add(Book(
-//            id = 1,
-//            title = "Ak şäherim Aşgabat",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "344",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            pdfPath = "books/tm_1.pdf"
-//        ))
-//
-//        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
-//        books.add(Book(
-//            id = 2,
-//            title = "Türkmenistanyň dermanlyk ösümlikleri",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "1200",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf"),
-//                Volume(3, "Tom 3", "400", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
-//        books.add(Book(
-//            id = 3,
-//            title = "Ruhnama",
-//            author = "Saparmyrat Nyýazow",
-//            year = "2001",
-//            pages = "400",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", "Переводчик А.", "books/tm_1.pdf"),
-//                Translation("English", "Translator B.", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
-//        books.add(Book(
-//            id = 4,
-//            title = "Täze eýýamyň bosagasynda",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2023",
-//            pages = "800",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf")
-//            ),
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", null, "books/tm_1.pdf")
-//            )
-//        ))
-//
-//
-//        books.add(Book(
-//            id = 1,
-//            title = "Ak şäherim Aşgabat",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "344",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            pdfPath = "books/tm_1.pdf"
-//        ))
-//
-//        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
-//        books.add(Book(
-//            id = 2,
-//            title = "Türkmenistanyň dermanlyk ösümlikleri",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "1200",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf"),
-//                Volume(3, "Tom 3", "400", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
-//        books.add(Book(
-//            id = 3,
-//            title = "Ruhnama",
-//            author = "Saparmyrat Nyýazow",
-//            year = "2001",
-//            pages = "400",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", "Переводчик А.", "books/tm_1.pdf"),
-//                Translation("English", "Translator B.", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
-//        books.add(Book(
-//            id = 4,
-//            title = "Täze eýýamyň bosagasynda",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2023",
-//            pages = "800",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf")
-//            ),
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", null, "books/tm_1.pdf")
-//            )
-//        ))
-//
-//
-//        books.add(Book(
-//            id = 1,
-//            title = "Ak şäherim Aşgabat",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "344",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            pdfPath = "books/tm_1.pdf"
-//        ))
-//
-//        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
-//        books.add(Book(
-//            id = 2,
-//            title = "Türkmenistanyň dermanlyk ösümlikleri",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "1200",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf"),
-//                Volume(3, "Tom 3", "400", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
-//        books.add(Book(
-//            id = 3,
-//            title = "Ruhnama",
-//            author = "Saparmyrat Nyýazow",
-//            year = "2001",
-//            pages = "400",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", "Переводчик А.", "books/tm_1.pdf"),
-//                Translation("English", "Translator B.", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
-//        books.add(Book(
-//            id = 4,
-//            title = "Täze eýýamyň bosagasynda",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2023",
-//            pages = "800",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf")
-//            ),
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", null, "books/tm_1.pdf")
-//            )
-//        ))
-//
-//
-//
-//        books.add(Book(
-//            id = 1,
-//            title = "Ak şäherim Aşgabat",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "344",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            pdfPath = "books/tm_1.pdf"
-//        ))
-//
-//        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
-//        books.add(Book(
-//            id = 2,
-//            title = "Türkmenistanyň dermanlyk ösümlikleri",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "1200",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf"),
-//                Volume(3, "Tom 3", "400", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
-//        books.add(Book(
-//            id = 3,
-//            title = "Ruhnama",
-//            author = "Saparmyrat Nyýazow",
-//            year = "2001",
-//            pages = "400",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", "Переводчик А.", "books/tm_1.pdf"),
-//                Translation("English", "Translator B.", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
-//        books.add(Book(
-//            id = 4,
-//            title = "Täze eýýamyň bosagasynda",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2023",
-//            pages = "800",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf")
-//            ),
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", null, "books/tm_1.pdf")
-//            )
-//        ))
-//
-//
-//
-//        books.add(Book(
-//            id = 1,
-//            title = "Ak şäherim Aşgabat",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "344",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            pdfPath = "books/tm_1.pdf"
-//        ))
-//
-//        // PRIMER 2: Kniga S TOMAMI (neskolko tomov)
-//        books.add(Book(
-//            id = 2,
-//            title = "Türkmenistanyň dermanlyk ösümlikleri",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2021",
-//            pages = "1200",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf"),
-//                Volume(3, "Tom 3", "400", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 3: Kniga S PEREVODAMI (raznyye yazyki)
-//        books.add(Book(
-//            id = 3,
-//            title = "Ruhnama",
-//            author = "Saparmyrat Nyýazow",
-//            year = "2001",
-//            pages = "400",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", "Переводчик А.", "books/tm_1.pdf"),
-//                Translation("English", "Translator B.", "books/tm_1.pdf")
-//            )
-//        ))
-//
-//        // PRIMER 4: Kniga S TOMAMI I PEREVODAMI (oba!)
-//        books.add(Book(
-//            id = 4,
-//            title = "Täze eýýamyň bosagasynda",
-//            author = "Gurbanguly Berdimuhamedow",
-//            year = "2023",
-//            pages = "800",
-//            language = "Türkmen",
-//            coverImage = R.drawable.placeholder,
-//            volumes = listOf(
-//                Volume(1, "Tom 1", "400", "books/tm_1.pdf"),
-//                Volume(2, "Tom 2", "400", "books/tm_1.pdf")
-//            ),
-//            translations = listOf(
-//                Translation("Türkmen", null, "books/tm_1.pdf"),
-//                Translation("Русский", null, "books/tm_1.pdf")
-//            )
-//        ))
         SearchManager.setBooks(books)
     }
 
