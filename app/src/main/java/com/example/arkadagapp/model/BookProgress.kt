@@ -7,5 +7,6 @@ data class BookProgress(
     val pdfPath: String,
     val currentPage: Int,
     val totalPages: Int,
-    val progress: Int
+    val progress: Int,
+    val lastReadTime: Long = 0
 )

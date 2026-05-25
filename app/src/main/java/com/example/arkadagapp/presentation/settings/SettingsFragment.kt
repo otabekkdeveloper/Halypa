@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arkadagapp.R
 import com.example.arkadagapp.model.BookProgress
+import com.example.arkadagapp.presentation.pdfReader.PdfReaderFragment
 import com.example.arkadagapp.presentation.pdfReader.ReadingProgressAdapter
-import com.example.arkadagapp.presentation.reader.PdfReaderFragment
 import com.example.arkadagapp.presentation.settings.favoriteBooksFragment.FavoriteBooksFragment
 import com.example.arkadagapp.presentation.settings.favoriteQuotesFragment.FavoriteQuotesFragment
 import com.example.arkadagapp.utils.BookmarkManager
@@ -153,7 +153,7 @@ class SettingsFragment : Fragment() {
     private fun loadReadingProgress() {
         val allProgress = bookmarkManager.getAllBooksProgress()
             .filter { it.progress > 0 }
-            .sortedByDescending { it.progress }
+            .sortedByDescending { it.lastReadTime }
 
         val adapter = ReadingProgressAdapter(allProgress) { bookProgress ->
             openBookFromProgress(bookProgress)

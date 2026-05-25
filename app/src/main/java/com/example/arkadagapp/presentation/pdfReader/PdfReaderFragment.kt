@@ -1,27 +1,44 @@
-package com.example.arkadagapp.presentation.reader
+package com.example.arkadagapp.presentation.pdfReader
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebChromeClient
+import android.webkit.WebSettings
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.arkadagapp.R
 import com.example.arkadagapp.utils.BookmarkManager
 import com.example.arkadagapp.utils.LikeManager
-import com.github.barteksc.pdfviewer.PDFView
-import com.github.barteksc.pdfviewer.listener.OnPageChangeListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.net.URLEncoder
 
-class PdfReaderFragment : Fragment(), OnPageChangeListener {
+class PdfReaderFragment : Fragment() {
 
-    private lateinit var pdfView: PDFView
+    private lateinit var webView: WebView
+
     private lateinit var pageNumber: TextView
     private lateinit var likeButton: ImageButton
+
+
+    private lateinit var searchLayout: LinearLayout
+    private lateinit var searchInput: EditText
+    private lateinit var searchCount: TextView
+    private lateinit var btnNext: ImageButton
+    private lateinit var btnPrev: ImageButton
+
     private lateinit var bookmarkManager: BookmarkManager
     private lateinit var likeManager: LikeManager
+
+    private var currentSearchIndex = 0
 
     private var pdfPath: String = ""
     private var bookTitle: String = ""
@@ -31,139 +48,362 @@ class PdfReaderFragment : Fragment(), OnPageChangeListener {
     private var totalPages: Int = 0
 
     companion object {
+
         private const val ARG_PDF_PATH = "pdf_path"
         private const val ARG_BOOK_TITLE = "book_title"
         private const val ARG_BOOK_ID = "book_id"
         private const val ARG_BOOK_COVER = "book_cover"
         private const val ARG_START_PAGE = "start_page"
 
-        fun newInstance(pdfPath: String, bookTitle: String, bookId: Int, bookCover: Int, startPage: Int = 0): PdfReaderFragment {
+        fun newInstance(
+            pdfPath: String,
+            bookTitle: String,
+            bookId: Int,
+            bookCover: Int,
+            startPage: Int = 0
+        ): PdfReaderFragment {
+
             val fragment = PdfReaderFragment()
+
             val args = Bundle()
+
             args.putString(ARG_PDF_PATH, pdfPath)
             args.putString(ARG_BOOK_TITLE, bookTitle)
             args.putInt(ARG_BOOK_ID, bookId)
             args.putInt(ARG_BOOK_COVER, bookCover)
             args.putInt(ARG_START_PAGE, startPage)
+
             fragment.arguments = args
+
             return fragment
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         pdfPath = arguments?.getString(ARG_PDF_PATH) ?: ""
         bookTitle = arguments?.getString(ARG_BOOK_TITLE) ?: ""
         bookId = arguments?.getInt(ARG_BOOK_ID) ?: 0
-        bookCoverImage = arguments?.getInt(ARG_BOOK_COVER) ?: R.drawable.placeholder
-        currentPage = arguments?.getInt(ARG_START_PAGE) ?: 0
-        bookmarkManager = BookmarkManager(requireContext())
-        likeManager = LikeManager(requireContext())
+
+        bookCoverImage =
+            arguments?.getInt(ARG_BOOK_COVER)
+                ?: R.drawable.placeholder
+
+        currentPage =
+            arguments?.getInt(ARG_START_PAGE) ?: 0
+
+        bookmarkManager =
+            BookmarkManager(requireContext())
+
+        likeManager =
+            LikeManager(requireContext())
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_pdf_reader, container, false)
+    ): View {
 
-        pdfView = view.findViewById(R.id.pdf_view)
-        pageNumber = view.findViewById(R.id.page_number)
-        likeButton = view.findViewById(R.id.like_button)
+        val view = inflater.inflate(
+            R.layout.fragment_pdf_reader,
+            container,
+            false
+        )
 
-        view.findViewById<TextView>(R.id.book_title).text = bookTitle
+        webView =
+            view.findViewById(R.id.pdf_webview)
 
-        // Back button
-        view.findViewById<ImageButton>(R.id.back_button).setOnClickListener {
-            saveCurrentProgress()
-            parentFragmentManager.popBackStack()
-        }
+        pageNumber =
+            view.findViewById(R.id.page_number)
 
-        // Like button
+        likeButton =
+            view.findViewById(R.id.like_button)
+
+
+
+
+        searchInput =
+            view.findViewById(R.id.search_input)
+
+
+
+        btnNext =
+            view.findViewById(R.id.btn_next)
+
+
+
+        view.findViewById<TextView>(R.id.book_title).text =
+            bookTitle
+
+        // BACK
+
+        view.findViewById<ImageButton>(R.id.back_button)
+            .setOnClickListener {
+
+                saveCurrentProgress()
+
+                parentFragmentManager.popBackStack()
+            }
+
+        // LIKE
+
         updateLikeIcon()
+
         likeButton.setOnClickListener {
             toggleLike()
         }
 
-        // Zagruzit' sohranennuyu stranitsu
-        currentPage = bookmarkManager.getSavedPage(bookId)
+        btnNext.setOnClickListener {
 
-        // Sohranit' info knigi
-        bookmarkManager.saveBookInfo(bookId, bookTitle, bookCoverImage, pdfPath)
+            val query =
+                searchInput.text.toString().trim()
 
-        loadPdfFromAssets()
+            if (query.isNotEmpty()) {
+
+                nextSearch(query)
+            }
+        }
+
+        // SEARCH PREV
+
+        btnPrev.setOnClickListener {
+
+            val query =
+                searchInput.text.toString().trim()
+
+            if (query.isNotEmpty()) {
+
+                prevSearch(query)
+            }
+        }
+
+        currentPage =
+            bookmarkManager.getSavedPage(bookId)
+
+        bookmarkManager.saveBookInfo(
+            bookId,
+            bookTitle,
+            bookCoverImage,
+            pdfPath
+        )
+
+        setupWebView()
+
+        loadPdf()
 
         return view
     }
 
-    private fun loadPdfFromAssets() {
+    @SuppressLint("SetJavaScriptEnabled")
+    private fun setupWebView() {
+
+        webView.webViewClient =
+            WebViewClient()
+
+        webView.webChromeClient =
+            WebChromeClient()
+
+        val settings: WebSettings =
+            webView.settings
+
+        settings.javaScriptEnabled = true
+        settings.allowFileAccess = true
+        settings.domStorageEnabled = true
+        settings.builtInZoomControls = true
+        settings.displayZoomControls = false
+        settings.useWideViewPort = true
+        settings.loadWithOverviewMode = true
+        settings.allowUniversalAccessFromFileURLs = true
+        settings.allowFileAccessFromFileURLs = true
+
+        webView.setLayerType(
+            View.LAYER_TYPE_HARDWARE,
+            null
+        )
+    }
+
+    private fun loadPdf() {
+
         try {
-            pdfView.fromAsset(pdfPath)
-                .defaultPage(currentPage)
-                .onPageChange(this)
-                .onLoad { nbPages ->
-                    totalPages = nbPages
-                    saveCurrentProgress()
-                }
-                .enableSwipe(true)
-                .swipeHorizontal(false)
-                .enableDoubletap(true)
-                .spacing(10)
-                .nightMode(false)
-                .load()
+
+            val encodedPdf = URLEncoder.encode(
+                "file:///android_asset/$pdfPath",
+                "UTF-8"
+            )
+
+            val url =
+                "file:///android_asset/pdfjs/web/viewer.html?file=$encodedPdf"
+
+            webView.loadUrl(url)
+
         } catch (e: Exception) {
+
             e.printStackTrace()
-            Toast.makeText(context, "PDF ýüklenip bilmedi", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(
+                context,
+                "PDF load error",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
-    override fun onPageChanged(page: Int, pageCount: Int) {
-        currentPage = page
-        totalPages = pageCount
-        pageNumber.text = "${page + 1}"
-        saveCurrentProgress()
+    // SEARCH + YELLOW HIGHLIGHT
+
+    private fun searchText(query: String) {
+
+        val safeQuery =
+            query.replace("'", "\\'")
+
+        val js = """
+            
+            javascript:(function() {
+            
+                PDFViewerApplication.findController.executeCommand(
+                    'find',
+                    {
+                        query: '$safeQuery',
+                        phraseSearch: true,
+                        highlightAll: true,
+                        caseSensitive: false,
+                        findPrevious: false
+                    }
+                );
+            
+            })()
+            
+        """.trimIndent()
+
+        webView.evaluateJavascript(js, null)
+
+        searchCount.text = "Search..."
+    }
+
+    private fun nextSearch(query: String) {
+
+        val safeQuery =
+            query.replace("'", "\\'")
+
+        val js = """
+            
+            javascript:(function() {
+            
+                PDFViewerApplication.findController.executeCommand(
+                    'findagain',
+                    {
+                        query: '$safeQuery',
+                        findPrevious: false
+                    }
+                );
+            
+            })()
+            
+        """.trimIndent()
+
+        webView.evaluateJavascript(js, null)
+    }
+
+    private fun prevSearch(query: String) {
+
+        val safeQuery =
+            query.replace("'", "\\'")
+
+        val js = """
+            
+            javascript:(function() {
+            
+                PDFViewerApplication.findController.executeCommand(
+                    'findagain',
+                    {
+                        query: '$safeQuery',
+                        findPrevious: true
+                    }
+                );
+            
+            })()
+            
+        """.trimIndent()
+
+        webView.evaluateJavascript(js, null)
     }
 
     private fun saveCurrentProgress() {
-        bookmarkManager.saveProgress(bookId, currentPage, totalPages)
+
+        bookmarkManager.saveProgress(
+            bookId,
+            currentPage,
+            totalPages
+        )
     }
 
     private fun toggleLike() {
+
         likeManager.toggleLike(bookId)
+
         updateLikeIcon()
 
-        val message = if (likeManager.isLiked(bookId)) {
-            "Halan kitaplara goşuldy ❤️"
-        } else {
-            "Halan kitaplardan aýryldy"
-        }
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        val message =
+            if (likeManager.isLiked(bookId)) {
+
+                "Halan kitaplara goşuldy ❤️"
+
+            } else {
+
+                "Halan kitaplardan aýryldy"
+            }
+
+        Toast.makeText(
+            context,
+            message,
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun updateLikeIcon() {
-        val icon = if (likeManager.isLiked(bookId)) {
-            R.drawable.ic_like_bold
-        } else {
-            R.drawable.ic_like
-        }
+
+        val icon =
+            if (likeManager.isLiked(bookId)) {
+
+                R.drawable.ic_like_bold
+
+            } else {
+
+                R.drawable.ic_like
+            }
+
         likeButton.setImageResource(icon)
     }
 
     override fun onPause() {
         super.onPause()
+
         saveCurrentProgress()
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.VISIBLE
+
+        activity
+            ?.findViewById<BottomNavigationView>(
+                R.id.bottom_navigation
+            )
+            ?.visibility = View.VISIBLE
     }
 
     override fun onResume() {
         super.onResume()
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)?.visibility = View.GONE
+
+        activity
+            ?.findViewById<BottomNavigationView>(
+                R.id.bottom_navigation
+            )
+            ?.visibility = View.GONE
+
         updateLikeIcon()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+
         saveCurrentProgress()
     }
 }

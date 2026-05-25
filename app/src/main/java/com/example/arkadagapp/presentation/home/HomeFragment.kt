@@ -155,7 +155,7 @@ class HomeFragment : Fragment() {
                 BookTranslation(
                     language = "Türkmen",
                     translator = null,
-                    pages = "830",
+//                    pages = "830",
                     coverImage = R.drawable.banner_1,
                     pdfPath = "books/1/tm_1.pdf"
                 )
@@ -172,7 +172,7 @@ class HomeFragment : Fragment() {
                 BookTranslation(
                     language = "Türkmen",
                     translator = null,
-                    pages = "830",
+//                    pages = "830",
                     coverImage = R.drawable.banner_2,
                     pdfPath = "books/2/tm_2.pdf"
                 )
@@ -190,7 +190,7 @@ class HomeFragment : Fragment() {
                 BookTranslation(
                     language = "Türkmen",
                     translator = null,
-                    pages = "830",
+//                    pages = "830",
                     coverImage = R.drawable.banner_3,
                     pdfPath = "books/3/tm_3.pdf"
                 )
@@ -269,6 +269,22 @@ class HomeFragment : Fragment() {
 //        ))
 
         books.add(Book(
+            id = 4,
+            title = "Çaý Melhem hem Ylham",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.banner_4,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.banner_4,
+                    pdfPath = "books/4/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
             id = 5,
             title = "Dowlet gushy",
             author = "Gurbanguly Berdimuhamedow",
@@ -278,7 +294,6 @@ class HomeFragment : Fragment() {
                 BookTranslation(
                     language = "Türkmen",
                     translator = null,
-                    pages = "830",
                     coverImage = R.drawable.banner_5,
                     pdfPath = "books/5/1.pdf"
                 )
@@ -294,12 +309,401 @@ class HomeFragment : Fragment() {
                 BookTranslation(
                     language = "Türkmen",
                     translator = null,
-                    pages = "830",
                     coverImage = R.drawable.banner_6,
                     pdfPath = "books/6/1.pdf"
                 )
             )
         ))
+        books.add(Book(
+            id = 7,
+            title = "Abadançylygyň röwşen gadamlary",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/7/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 8,
+            title = "Ak Şäherim Aşgabat",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/8/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 9,
+            title = "Änew müňýyllyklardan gözbaş alýan medeniýet",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/9/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 10,
+            title = "Arşyň Nepisligi",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/10/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 11,
+            title = " Bagtyýarlyk Saglykdan Başlanýar",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/11/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 12,
+            title = "Bitarap Türkmenistan",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/12/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 13,
+            title = "Döwlet adam üçindir",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2008",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/13/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 14,
+            title = "Enä Tagzym - Mukaddeslige Tagzym",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/14/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 15,
+            title = "Ganatly bedewler",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/15/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 16,
+            title = " Garaşsyz,hemişelik Bitarap Türkmenistanyň Harby doktrinasy",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/16/1.pdf"
+                )
+            )
+        ))
+        books.add(Book(
+            id = 17,
+            title = "Garaşsyzlyga guwanmak,Watany,halky söýmek bagtdar",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/17/1.pdf"
+                )
+            )
+        ))
+        books.add(Book(
+            id = 18,
+            title = "Hakyda göwheri",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/18/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 19,
+            title = "Ilе döwlet geler bolsa",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/19/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 20,
+            title = "Ömrümiň manysynyň dowamaty",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/21/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 21,
+            title = "Parahatçylyk Sazy, Dostluk, Doganlyk Sazy",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/21/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 22,
+            title = "Türkmenistan - sagdynlygyň we ruhubelentligiň ýurdy 2007",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2007",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/22/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 23,
+            title = "Türkmenistan Durnukly Ösüşiň Maksatlaryna Ýetmegiň Ýolunda",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/23/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 24,
+            title = "Türkmenistanda saglygy goraýşy ösdürmediň ylmy esaslary",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/24/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 25,
+            title = "Türkmenistan-sagdynlygyň we ruhubelentligiň ýurdy",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2008",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/25/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 26,
+            title = "Türkmenistanyň Beýik Galkynyş eýýamynyň Konstitusiýasy hakynda",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/26/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 27,
+            title = "Türkmenistanyň Bitaraplygy parahatçylygyň we ösüşiň syýasaty",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/27/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 28,
+            title = "Türkmenistanyň durmuş-ykdysady ösüşiniň döwlet kadalaşdyrylyşy",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    volumes = listOf(
+                                Volume(1, "Tom 1", R.drawable.placeholder, "books/28/1.pdf"),
+                                Volume(2, "Tom 2", R.drawable.placeholder, "books/28/2.pdf")
+                    )
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 29,
+            title = "Türkmenistanyň ykdysady strategiýasy halka daýanyp, halkyň hatyrasyna",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/29/1.pdf"
+                )
+            )
+        ))
+
+        books.add(Book(
+            id = 30,
+            title = "Тürkmenistan- melhemler mekany",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.placeholder,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.placeholder,
+                    pdfPath = "books/30/1.pdf"
+                )
+            )
+        ))
+
+
+
+
+
+
 
         SearchManager.setBooks(books)
     }

@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import com.example.arkadagapp.R
 import com.example.arkadagapp.model.Book
 import com.example.arkadagapp.model.BookTranslation
-import com.example.arkadagapp.presentation.reader.PdfReaderFragment
+import com.example.arkadagapp.presentation.pdfReader.PdfReaderFragment
+import com.example.arkadagapp.utils.PdfUtils
 
 class BookDetailFragment : Fragment() {
 
@@ -164,18 +165,38 @@ class BookDetailFragment : Fragment() {
                     bookCover.setImageResource(volumes[pos].coverImage)
 
                     // Izmenit' pages NA STRANITSY TOMA
-                    bookPages.text = volumes[pos].pages
+                    val pages = PdfUtils.getPdfPageCount(
+                        requireContext(),
+                        volumes[pos].pdfPath
+                    )
+
+                    bookPages.text = pages.toString()
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
 
             // Postavit' pervyy tom po umolchaniyu
             bookCover.setImageResource(volumes[0].coverImage)
-            bookPages.text = volumes[0].pages
+
+            val firstVolumePages = PdfUtils.getPdfPageCount(
+                requireContext(),
+                volumes[0].pdfPath
+            )
+
+            bookPages.text = firstVolumePages.toString()
+
         } else {
             // Net tomov - skryt' i pokazat' stranitsy perevoda
             tomSection.visibility = View.GONE
-            bookPages.text = selectedTranslation?.pages ?: "-"
+
+            val pdfPath = selectedTranslation?.pdfPath
+
+            if (pdfPath != null) {
+                val pages = PdfUtils.getPdfPageCount(requireContext(), pdfPath)
+                bookPages.text = pages.toString()
+            } else {
+                bookPages.text = "-"
+            }
         }
     }
 
@@ -184,10 +205,23 @@ class BookDetailFragment : Fragment() {
         val translation = selectedTranslation ?: return
 
         if (translation.volumes != null && translation.volumes.isNotEmpty()) {
-            val totalPages = translation.volumes.sumOf { it.pages.toIntOrNull() ?: 0 }
+
+            val totalPages = translation.volumes.sumOf { volume ->
+                PdfUtils.getPdfPageCount(requireContext(), volume.pdfPath)
+            }
+
             bookPages.text = totalPages.toString()
+
         } else {
-            bookPages.text = "-"
+
+            val pdfPath = translation.pdfPath
+
+            if (pdfPath != null) {
+                val pages = PdfUtils.getPdfPageCount(requireContext(), pdfPath)
+                bookPages.text = pages.toString()
+            } else {
+                bookPages.text = "-"
+            }
         }
     }
 

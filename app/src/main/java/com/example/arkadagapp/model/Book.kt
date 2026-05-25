@@ -17,16 +17,18 @@ data class BookTranslation(
     val language: String,           // "Türkmen", "Русский", "English"
     val translator: String? = null, // Perevodchik (esli est')
     val coverImage: Int, // Cover dlya etogo yazyka
-    val pages: String,
+//    val pages: String,
     val volumes: List<Volume>? = null, // Toma dlya etogo yazyka
-    val pdfPath: String? = null     // PDF (esli net tomov)
+    val pdfPath: String? = null,     // PDF (esli net tomov)
+    var pageCount: Int = 0
 ) : Serializable
 
 // TOM
 data class Volume(
     val number: Int,      // Nomer toma
     val title: String,    // "Tom 1"
-    val pages: String,    // Kolichestvo stranits
+//    val pages: String,    // Kolichestvo stranits
     val coverImage: Int,  // Cover toma
-    val pdfPath: String   // PDF fail toma
+    val pdfPath: String,
+    var pageCount: Int = 0
 ) : Serializable
