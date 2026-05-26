@@ -975,13 +975,91 @@ class HomeFragment : Fragment() {
             )
         ))
 
+        books.add(Book(
+            id = 48,
+            title = "Beýik Özgertmeleriň Ýyl Ýazgylary",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.banner_48_1,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.banner_48_1,
+                    volumes = listOf(
+                        Volume(1, "Tom 1", R.drawable.banner_48_1, "books/48/1.pdf"),
+                        Volume(2, "Tom 3", R.drawable.banner_48_3, "books/48/3.pdf"),
+                        Volume(3, "Tom 4", R.drawable.banner_48_4, "books/48/4.pdf"),
+                        Volume(4, "Tom 5", R.drawable.banner_48_5, "books/48/5.pdf"),
+                        Volume(5, "Tom 6", R.drawable.banner_48_6, "books/48/6.pdf"),
+                        Volume(6, "Tom 7", R.drawable.banner_48_7, "books/48/7.pdf"),
+                        Volume(7, "Tom 8", R.drawable.banner_48_8, "books/48/8.pdf"),
+                        Volume(8, "Tom 9", R.drawable.banner_48_9, "books/48/9.pdf"),
+                        Volume(9, "Tom 10", R.drawable.banner_48_10, "books/48/10.pdf"),
+
+                    )
+                )
+            )
+        ))
 
 
+        books.add(Book(
+            id = 49,
+            title = "Ösüşiň Täze Belentliklerine Tarap",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.banner_49_1,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.banner_49_1,
+                    volumes = listOf(
+                        Volume(1, "Tom 1", R.drawable.banner_49_1, "books/49/1.pdf"),
+                        Volume(2, "Tom 2", R.drawable.banner_49_2, "books/49/2.pdf"),
+                        Volume(3, "Tom 3", R.drawable.banner_49_3, "books/49/3.pdf"),
+                        Volume(4, "Tom 4", R.drawable.banner_49_4, "books/49/4.pdf"),
+                        Volume(5, "Tom 5", R.drawable.banner_49_5, "books/49/5.pdf"),
+                        Volume(6, "Tom 6", R.drawable.banner_49_6, "books/49/6.pdf"),
+                        Volume(7, "Tom 7", R.drawable.banner_49_7, "books/49/7.pdf"),
+                        Volume(8, "Tom 8", R.drawable.banner_49_8, "books/49/8.pdf"),
+                        Volume(9, "Tom 9", R.drawable.banner_49_9, "books/49/9.pdf"),
+                        Volume(10, "Tom 10", R.drawable.banner_49_10, "books/49/10.pdf"),
+                        Volume(11, "Tom 11", R.drawable.banner_49_11, "books/49/11.pdf"),
+
+                    )
+                )
+            )
+        ))
 
 
-
-
-
+        books.add(Book(
+            id = 50,
+            title = "Türkmenistanyň Dermanlyk Ösümlikleri",
+            author = "Gurbanguly Berdimuhamedow",
+            year = "2001",
+            coverImage = R.drawable.banner_50_1,
+            translations = listOf(
+                BookTranslation(
+                    language = "Türkmen",
+                    translator = null,
+                    coverImage = R.drawable.banner_50_1,
+                    volumes = listOf(
+                        Volume(1, "Tom 1", R.drawable.banner_50_1,"books/50/1.pdf"),
+                        Volume(2, "Tom 2", R.drawable.banner_50_2, "books/50/2.pdf"),
+                        Volume(3, "Tom 3", R.drawable.banner_50_3, "books/50/3.pdf"),
+                        Volume(4, "Tom 4", R.drawable.banner_50_4, "books/50/4.pdf"),
+                        Volume(5, "Tom 5", R.drawable.banner_50_5, "books/50/5.pdf"),
+                        Volume(6, "Tom 6", R.drawable.banner_50_6, "books/50/6.pdf"),
+                        Volume(7, "Tom 7", R.drawable.banner_50_7, "books/50/7.pdf"),
+                        Volume(8, "Tom 8", R.drawable.banner_50_8, "books/50/8.pdf"),
+                        Volume(9, "Tom 9", R.drawable.banner_50_9, "books/50/9.pdf"),
+                        Volume(10, "Tom 10", R.drawable.banner_50_10, "books/50/10.pdf"),
+                        Volume(11, "Tom 11", R.drawable.banner_50_11, "books/50/11.pdf"),
+                    )
+                )
+            )
+        ))
 
         SearchManager.setBooks(books)
     }
