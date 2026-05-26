@@ -98,8 +98,8 @@
 :is(.messageBar > div)::before{
       content:"";
       display:inline-block;
-      width:16px;
-      height:16px;
+      width:0px;
+      height:0px;
       -webkit-mask-image:var(--message-bar-icon);
               mask-image:var(--message-bar-icon);
       -webkit-mask-size:cover;
@@ -8816,4 +8816,19 @@ dialog :link{
   #scaleSelectContainer{
     display:none;
   }
+}
+
+/* button#printButton,
+button#downloadButton {
+    display: none !important;
+} */
+
+#secondaryPrint,
+#secondaryOpenFile,
+#scrollPage,
+#documentProperties,
+#stampAddImage,
+#viewBookmark,
+#secondaryDownload {
+    display: none !important;
 }

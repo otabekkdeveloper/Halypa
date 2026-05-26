@@ -79,9 +79,16 @@ class SettingsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val quotesCount = view?.findViewById<TextView>(R.id.quotes_count)
-        quotesCount?.text = QuotesManager.getFavoriteQuotes().size.toString()
 
+        loadReadingProgress()
+
+        val quotesCount =
+            view?.findViewById<TextView>(R.id.quotes_count)
+
+        quotesCount?.text =
+            QuotesManager.getFavoriteQuotes()
+                .size
+                .toString()
     }
 
 

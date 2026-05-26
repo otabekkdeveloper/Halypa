@@ -43,7 +43,6 @@ class BookDetailFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_book_detail, container, false)
 
-        // Views
         val backButton = view.findViewById<ImageButton>(R.id.back_button)
         val bookCover = view.findViewById<ImageView>(R.id.detail_book_cover)
         val bookTitle = view.findViewById<TextView>(R.id.detail_book_title)
@@ -60,23 +59,18 @@ class BookDetailFragment : Fragment() {
 
         val readButton = view.findViewById<Button>(R.id.read_button)
 
-        // Set basic info
         bookTitle.text = book.title
         bookAuthor.text = book.author
         bookYear.text = book.year
 
-        // Back button
         backButton.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
-        // Setup language
         setupLanguage(languageSection, languageText, languageSpinner, bookCover, bookPages, tomSection, tomSpinner)
 
-        // Setup volumes (esli est')
         setupVolumes(tomSection, tomSpinner, bookCover, bookPages)
 
-        // Read button
         readButton.setOnClickListener {
             openPdfReader()
         }

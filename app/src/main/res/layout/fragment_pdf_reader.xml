@@ -29,30 +29,85 @@
 
         <TextView
             android:id="@+id/book_title"
+            android:layout_marginEnd="50dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Book"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:gravity="center"
             android:maxLines="1"
             android:ellipsize="end" />
 
-
+        <ImageButton
+            android:id="@+id/search_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/white" />
 
         <ImageButton
             android:id="@+id/like_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_like"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:tint="@color/white" />
 
     </LinearLayout>
 
+    <!-- SEARCH -->
 
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_bar"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:padding="8dp"
+        android:background="#1E1E1E"
+        android:gravity="center_vertical"
+        android:elevation="6dp">
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="Search in book..."
+            android:textColor="@color/white"
+            android:textColorHint="#AAAAAA"
+            android:background="@drawable/bg_search"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <TextView
+            android:id="@+id/search_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/0"
+            android:textColor="@color/white"
+            android:padding="8dp" />
+
+        <ImageButton
+            android:id="@+id/btn_prev"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_up"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_down"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/white" />
+
+    </LinearLayout>
 
     <!-- PDF WEBVIEW -->
 
@@ -60,8 +115,8 @@
         android:id="@+id/pdf_webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/search_layout"
         android:layout_above="@id/bottom_bar"
-        android:layout_below="@+id/top_bar"
         android:overScrollMode="never"
         android:scrollbars="none" />
 

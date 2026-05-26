@@ -28,7 +28,7 @@ class PdfReaderFragment : Fragment() {
     private lateinit var pageNumber: TextView
     private lateinit var likeButton: ImageButton
 
-
+    private lateinit var searchButton: ImageButton
     private lateinit var searchLayout: LinearLayout
     private lateinit var searchInput: EditText
     private lateinit var searchCount: TextView
@@ -37,8 +37,6 @@ class PdfReaderFragment : Fragment() {
 
     private lateinit var bookmarkManager: BookmarkManager
     private lateinit var likeManager: LikeManager
-
-    private var currentSearchIndex = 0
 
     private var pdfPath: String = ""
     private var bookTitle: String = ""
@@ -122,18 +120,23 @@ class PdfReaderFragment : Fragment() {
         likeButton =
             view.findViewById(R.id.like_button)
 
+        searchButton =
+            view.findViewById(R.id.search_button)
 
-
+        searchLayout =
+            view.findViewById(R.id.search_layout)
 
         searchInput =
             view.findViewById(R.id.search_input)
 
-
+        searchCount =
+            view.findViewById(R.id.search_count)
 
         btnNext =
             view.findViewById(R.id.btn_next)
 
-
+        btnPrev =
+            view.findViewById(R.id.btn_prev)
 
         view.findViewById<TextView>(R.id.book_title).text =
             bookTitle
@@ -155,6 +158,22 @@ class PdfReaderFragment : Fragment() {
         likeButton.setOnClickListener {
             toggleLike()
         }
+
+        // SEARCH PANEL
+
+        searchButton.setOnClickListener {
+
+            if (searchLayout.visibility == View.GONE) {
+
+                searchLayout.visibility = View.VISIBLE
+
+            } else {
+
+                searchLayout.visibility = View.GONE
+            }
+        }
+
+        // SEARCH NEXT
 
         btnNext.setOnClickListener {
 
@@ -203,6 +222,28 @@ class PdfReaderFragment : Fragment() {
         webView.webViewClient =
             WebViewClient()
 
+        webView.addJavascriptInterface(
+            object {
+
+                @android.webkit.JavascriptInterface
+                fun onPageChanged(page: Int, total: Int) {
+
+                    activity?.runOnUiThread {
+
+                        currentPage = page
+                        totalPages = total
+
+                        pageNumber.text =
+                            "${page + 1}"
+
+                        saveCurrentProgress()
+                    }
+                }
+
+            },
+            "Android"
+        )
+
         webView.webChromeClient =
             WebChromeClient()
 
@@ -235,9 +276,49 @@ class PdfReaderFragment : Fragment() {
             )
 
             val url =
-                "file:///android_asset/pdfjs/web/viewer.html?file=$encodedPdf"
+                "file:///android_asset/pdfjs/web/viewer.html?file=$encodedPdf#page=${currentPage + 1}"
 
             webView.loadUrl(url)
+
+            webView.post {
+
+                val js = """
+
+                javascript:(function() {
+
+                    function initPdfEvents() {
+
+                        if (
+                            typeof PDFViewerApplication === 'undefined'
+                            ||
+                            !PDFViewerApplication.eventBus
+                        ) {
+
+                            setTimeout(initPdfEvents, 500)
+                            return
+                        }
+
+                        PDFViewerApplication.eventBus.on(
+                            'pagechanging',
+                            function(e) {
+
+                                Android.onPageChanged(
+                                    e.pageNumber - 1,
+                                    PDFViewerApplication.pagesCount
+                                )
+                            }
+                        )
+
+                    }
+
+                    initPdfEvents()
+
+                })()
+
+            """.trimIndent()
+
+                webView.evaluateJavascript(js, null)
+            }
 
         } catch (e: Exception) {
 
@@ -401,9 +482,12 @@ class PdfReaderFragment : Fragment() {
         updateLikeIcon()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
 
         saveCurrentProgress()
+
+        webView.stopLoading()
+        webView.destroy()
     }
 }
