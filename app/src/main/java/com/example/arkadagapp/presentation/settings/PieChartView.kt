@@ -18,27 +18,26 @@ class PieChartView @JvmOverloads constructor(
     private var progress: Int = 0
 
     private val backgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = ContextCompat.getColor(context, R.color.app_color) // #1E293B
+        color = ContextCompat.getColor(context, R.color.app_color)
         style = Paint.Style.FILL
     }
 
     private val progressPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = ContextCompat.getColor(context, R.color.blue) // #2563EB
+        color = ContextCompat.getColor(context, R.color.blue)
         style = Paint.Style.FILL
     }
 
-    // NOVOE: Border paint
     private val borderPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = ContextCompat.getColor(context, R.color.blue) // #2563EB
+        color = ContextCompat.getColor(context, R.color.blue)
         style = Paint.Style.STROKE
-        strokeWidth = 8f // 2dp * 2 = 4px
+        strokeWidth = 8f
     }
 
     private val rect = RectF()
 
     fun setProgress(progress: Int) {
         this.progress = progress
-        invalidate() // Pererisovat'
+        invalidate()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -58,16 +57,13 @@ class PieChartView @JvmOverloads constructor(
             centerY + radius
         )
 
-        // 1. Risuem fon (polnyy krug)
         canvas.drawCircle(centerX, centerY, radius, backgroundPaint)
 
-        // 2. Risuem progress (pitsa dolka)
         if (progress > 0) {
             val sweepAngle = (progress / 100f) * 360f
             canvas.drawArc(rect, -90f, sweepAngle, true, progressPaint)
         }
 
-        // 3. Risuem border (obvodka)
         canvas.drawCircle(centerX, centerY, radius, borderPaint)
     }
 }

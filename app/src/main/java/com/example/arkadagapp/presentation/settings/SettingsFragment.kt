@@ -48,7 +48,7 @@ class SettingsFragment : Fragment() {
 
         setupLanguageSpinner()
         loadReadingProgress()
-//        setupThemeSwitch()
+        setupThemeSwitch()
 
         // Favorite Quotes Button
         val favoriteQuotesButton = view.findViewById<LinearLayout>(R.id.favorite_quotes_button)
@@ -60,14 +60,7 @@ class SettingsFragment : Fragment() {
                 .commit()
         }
 
-        val favoriteBooks = view.findViewById<LinearLayout>(R.id.favorite_books_button)
-        favoriteBooks?.setOnClickListener {
-            val fragment = FavoriteBooksFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
+
 
 
 

@@ -1,4 +1,4 @@
-package com.example.arkadagapp.presentation.test
+package com.example.arkadagapp.presentation.test.question
 
 import android.content.res.ColorStateList
 import android.os.Bundle
@@ -9,9 +9,9 @@ import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.arkadagapp.R
-import com.example.arkadagapp.R.color.ic_checked
 import com.example.arkadagapp.model.Question
 import com.example.arkadagapp.model.WrongQuestion
+import com.example.arkadagapp.presentation.test.ResultFragment
 import com.example.arkadagapp.utils.QuestionManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -48,8 +48,6 @@ class QuestionFragment : Fragment() {
         setupListeners()
         showQuestion()
 
-
-
         return view
     }
 
@@ -81,13 +79,11 @@ class QuestionFragment : Fragment() {
 
     private fun updateNextButtonState(isEnabled: Boolean) {
         if (isEnabled) {
-            // Синяя кнопка - ответ выбран
             btnNext.isEnabled = true
             btnNext.backgroundTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(requireContext(), R.color.blue)
             )
         } else {
-            // Серая кнопка - ответ не выбран
             btnNext.isEnabled = false
             btnNext.backgroundTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(requireContext(), R.color.gray)
@@ -98,7 +94,7 @@ class QuestionFragment : Fragment() {
     private fun showQuestion() {
         val question = questions[currentIndex]
 
-        testProgress.text = "Sorag ${currentIndex + 1}/${questions.size}"
+        testProgress.text = " ${currentIndex + 1}/${questions.size}"
         progressBar.progress = currentIndex + 1
         questionText.text = question.question
 
@@ -106,7 +102,7 @@ class QuestionFragment : Fragment() {
         selectedIndex = -1
         hasAnswered = false
         btnNext.isEnabled = false
-        btnNext.text = "Öňe"
+        btnNext.text = getString(R.string.continue_question)
 
         updateNextButtonState(false)
 
@@ -150,7 +146,6 @@ class QuestionFragment : Fragment() {
             )
         }
 
-        // Показать результат
         for (i in 0 until answersGroup.childCount) {
             val radio = answersGroup.getChildAt(i) as RadioButton
             val index = radio.tag as Int
@@ -168,12 +163,12 @@ class QuestionFragment : Fragment() {
             }
         }
 
-        btnNext.text = if (currentIndex < questions.size - 1) {
-            "Öňe"
-        } else {
-            "Gutarmak"
-        }
-    }
+        btnNext.text =
+            if (currentIndex < questions.size - 1) {
+                getString(R.string.continue_question)
+            } else {
+                getString(R.string.finish)
+            }}
 
     private fun nextQuestion() {
         if (currentIndex < questions.size - 1) {

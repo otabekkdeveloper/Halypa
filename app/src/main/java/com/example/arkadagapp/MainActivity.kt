@@ -2,6 +2,7 @@ package com.example.arkadagapp
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeHelper.applyTheme(this)
+
+        android.util.Log.d(
+            "THEME_DEBUG",
+            "Saved theme = ${ThemeHelper.getTheme(this)}"
+        )
         super.onCreate(savedInstanceState)
 
         LocaleHelper.updateResources(this, LocaleHelper.getLocale(this))
@@ -51,6 +57,18 @@ class MainActivity : AppCompatActivity() {
             updateBottomNavIcons(item.itemId)
             true
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d(
+            "THEME_DEBUG",
+            "NightMode Main = ${
+                resources.configuration.uiMode and
+                        android.content.res.Configuration.UI_MODE_NIGHT_MASK
+            }"
+        )
     }
 
     override fun attachBaseContext(newBase: Context) {

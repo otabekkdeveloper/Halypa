@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.arkadagapp.R
+import com.example.arkadagapp.presentation.test.question.QuestionFragment
 
 class SynagFragment : Fragment() {
 

@@ -22,7 +22,6 @@ object PdfSearchHelper {
 
         if (query.length < 2) return emptyList()
 
-        // Инициализация PDFBox (только один раз)
         PDFBoxResourceLoader.init(context)
 
         val results = mutableListOf<PdfSearchResult>()
@@ -32,14 +31,12 @@ object PdfSearchHelper {
             val document = PDDocument.load(inputStream)
             val stripper = PDFTextStripper()
 
-            // Проходим по каждой странице
             for (pageNum in 1..document.numberOfPages) {
                 stripper.startPage = pageNum
                 stripper.endPage = pageNum
 
                 val pageText = stripper.getText(document)
 
-                // Ищем запрос в тексте страницы
                 if (pageText.contains(query, ignoreCase = true)) {
                     val snippet = extractSnippet(pageText, query)
 
@@ -61,7 +58,6 @@ object PdfSearchHelper {
         return results
     }
 
-    // Извлекаем отрывок текста вокруг найденного слова
     private fun extractSnippet(text: String, query: String, contextLength: Int = 100): String {
         val lowerText = text.lowercase()
         val lowerQuery = query.lowercase()
@@ -74,7 +70,6 @@ object PdfSearchHelper {
 
         var snippet = text.substring(start, end).trim()
 
-        // Добавляем "..." если обрезали
         if (start > 0) snippet = "...$snippet"
         if (end < text.length) snippet = "$snippet..."
 

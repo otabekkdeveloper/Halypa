@@ -10,7 +10,6 @@
     android:clickable="true"
     android:focusable="true">
 
-    <!-- Book Cover -->
     <ImageView
         android:id="@+id/result_book_cover"
         android:layout_width="48dp"
@@ -18,7 +17,6 @@
         android:scaleType="centerCrop"
         android:background="#D1D5DB" />
 
-    <!-- Result Info -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -26,7 +24,6 @@
         android:orientation="vertical"
         android:layout_marginStart="12dp">
 
-        <!-- Book Title -->
         <TextView
             android:id="@+id/result_book_title"
             android:layout_width="wrap_content"
@@ -39,7 +36,6 @@
             android:maxLines="1"
             android:ellipsize="end" />
 
-        <!-- Subtitle (Book name) -->
         <TextView
             android:id="@+id/result_subtitle"
             android:layout_width="wrap_content"
@@ -51,7 +47,6 @@
             android:maxLines="1"
             android:layout_marginTop="4dp" />
 
-        <!-- Snippet Text (s vydelennym slovom) -->
         <TextView
             android:id="@+id/result_snippet"
             android:layout_width="wrap_content"
@@ -65,7 +60,6 @@
             android:layout_marginTop="8dp" />
     </LinearLayout>
 
-    <!-- Arrow -->
     <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"

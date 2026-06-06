@@ -36,14 +36,11 @@ class ReadingProgressAdapter(
         holder.bookPages.text = "${bookProgress.currentPage + 1} / ${bookProgress.totalPages} sahypa"
         holder.progressPercentage.text = "${bookProgress.progress}%"
 
-        // Установить progress в pie chart
         holder.pieChart.setProgress(bookProgress.progress)
 
-        // ИСПРАВЛЕНИЕ: Проверка и fallback на placeholder
         try {
             holder.bookCover.setImageResource(bookProgress.coverImage)
         } catch (e: Exception) {
-            // Если ошибка - ставим placeholder
             holder.bookCover.setImageResource(R.drawable.placeholder)
         }
 

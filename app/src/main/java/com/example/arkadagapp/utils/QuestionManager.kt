@@ -4,7 +4,6 @@ import com.example.arkadagapp.model.Question
 
 object QuestionManager {
 
-    // База вопросов (правильный ответ ВСЕГДА на индексе 0)
     private val questionsTemplate = listOf(
         Question(1, "Konstitutsiýa", "Türkmenistanyň Konstitutsiýasy ilkinji gezek haçan kabul edildi?",
             listOf("1992-nji ýylyň 18-nji maýynda", "1991-nji ýylyň 18-nji maýynda", "1993-nji ýylyň 18-nji maýynda", "1990-nji ýylyň 18-nji maýynda"), 0),
@@ -36,12 +35,11 @@ object QuestionManager {
         Question(10, "Ylym", "Türkmenistanyň Ylymlar akademiýasy haçan döredildi?",
             listOf("1951-nji ýylda", "1941-nji ýylda", "1961-nji ýylda", "1971-nji ýylda"), 0),
 
-        // Добавь еще 90 вопросов здесь, всегда с правильным ответом на индексе 0
+        Question(11, "Himiya Ylym", "Türkmenistanyň Ylymlar sfsefsefse",
+            listOf("1951-nji ýylda", "1941-nji ýylda", "1961-nji ýylda", "1971-nji ýylda"), 0),
     )
 
-    /**
-     * Перемешивает ответы в вопросе и обновляет правильный индекс
-     */
+
     private fun shuffleAnswers(question: Question): Question {
         val answersWithIndex = question.answers.mapIndexed { index, answer ->
             answer to (index == question.correctAnswerIndex)
@@ -57,9 +55,6 @@ object QuestionManager {
         )
     }
 
-    /**
-     * Получить 10 случайных вопросов с перемешанными ответами
-     */
     fun getRandomQuestions(count: Int = 10): List<Question> {
         return questionsTemplate
             .shuffled()

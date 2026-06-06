@@ -27,7 +27,6 @@ object ThemeHelper {
         val prefs = context.getSharedPreferences(THEME_PREF, Context.MODE_PRIVATE)
         return prefs.getString(THEME_KEY, THEME_DARK) ?: THEME_DARK
     }
-
     // Применить тему
     fun applyTheme(context: Context) {
         val theme = getTheme(context)

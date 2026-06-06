@@ -7,34 +7,47 @@
     android:padding="16dp"
     android:layout_marginBottom="12dp">
 
-    <!-- Номер вопроса -->
-    <TextView
-        android:id="@+id/question_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sorag 3"
-        android:textColor="#3B82F6"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/libre_baskerville"
-        android:layout_marginBottom="8dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
 
-    <!-- Вопрос -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question"
+            android:textColor="#3B82F6"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/libre_baskerville"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/question_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3B82F6"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/libre_baskerville"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/question_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:layout_marginBottom="12dp"
         android:fontFamily="@font/libre_baskerville"
         android:lineSpacingExtra="4dp"
-        android:layout_marginBottom="12dp" />
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
-    <!-- Твой ответ -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Siziň jogap:"
+        android:text="@string/your_answer"
         android:textColor="#71717A"
         android:textSize="14sp"
         android:fontFamily="@font/libre_baskerville" />
@@ -51,11 +64,10 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="12dp" />
 
-    <!-- Правильный ответ -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dogry jogap:"
+        android:text="@string/correct_answers"
         android:textColor="#71717A"
         android:textSize="14sp"
         android:fontFamily="@font/libre_baskerville" />

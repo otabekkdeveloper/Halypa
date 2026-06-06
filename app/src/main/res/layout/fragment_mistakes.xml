@@ -4,9 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#1C1C1E">
+    android:background="@color/app_color">
 
-    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,8 +24,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Ýalňyşlaryňyz"
-            android:textColor="#FFFFFF"
+            android:text="@string/view_mistakes"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             android:fontFamily="@font/libre_baskerville"
@@ -37,7 +36,6 @@
             android:layout_height="32dp" />
     </LinearLayout>
 
-    <!-- Список ошибок -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mistakes_recycler"
         android:layout_width="match_parent"

@@ -64,7 +64,6 @@ class ResultFragment : Fragment() {
         correctCount.text = correctAnswers.toString()
         wrongCount.text = wrongAnswers.toString()
 
-        // Если нет ошибок - скрыть кнопку
         if (wrongQuestions.isEmpty()) {
             btnShowMistakes.visibility = View.GONE
         }
@@ -80,7 +79,6 @@ class ResultFragment : Fragment() {
         }
 
         btnBackToTests.setOnClickListener {
-            // Очистить весь back stack и вернуться к началу
             parentFragmentManager.popBackStack(
                 null,
                 androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE

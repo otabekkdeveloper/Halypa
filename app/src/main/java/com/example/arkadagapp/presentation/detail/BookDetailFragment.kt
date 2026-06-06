@@ -11,6 +11,7 @@ import com.example.arkadagapp.model.Book
 import com.example.arkadagapp.model.BookTranslation
 import com.example.arkadagapp.presentation.pdfReader.PdfReaderFragment
 import com.example.arkadagapp.utils.PdfUtils
+import com.example.arkadagapp.utils.ThemeHelper
 
 class BookDetailFragment : Fragment() {
 
@@ -90,19 +91,15 @@ class BookDetailFragment : Fragment() {
         val translations = book.translations
 
         if (translations.size == 1) {
-            // Odin yazyk - prosto tekst
             languageText.visibility = View.VISIBLE
             languageSpinner.visibility = View.GONE
             languageText.text = translations[0].language
             selectedTranslation = translations[0]
 
-            // Pokazat' cover
             bookCover.setImageResource(selectedTranslation!!.coverImage)
 
-            // Pokazat' pages
             updatePages(bookPages)
         } else {
-            // Neskolko yazykov - dropdown
             languageText.visibility = View.GONE
             languageSpinner.visibility = View.VISIBLE
 
@@ -116,13 +113,10 @@ class BookDetailFragment : Fragment() {
                     selectedTranslation = translations[pos]
                     selectedVolumeIndex = 0
 
-                    // Izmenit' cover
                     bookCover.setImageResource(selectedTranslation!!.coverImage)
 
-                    // Izmenit' pages
                     updatePages(bookPages)
 
-                    // Obnovit' toma
                     setupVolumes(tomSection, tomSpinner, bookCover, bookPages)
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -143,7 +137,6 @@ class BookDetailFragment : Fragment() {
         val volumes = selectedTranslation?.volumes
 
         if (volumes != null && volumes.isNotEmpty()) {
-            // Est' toma - pokazat' dropdown
             tomSection.visibility = View.VISIBLE
 
             val volumeNames = volumes.map { it.title }
@@ -155,10 +148,8 @@ class BookDetailFragment : Fragment() {
                 override fun onItemSelected(parent: AdapterView<*>?, v: View?, pos: Int, id: Long) {
                     selectedVolumeIndex = pos
 
-                    // Izmenit' cover na cover toma
                     bookCover.setImageResource(volumes[pos].coverImage)
 
-                    // Izmenit' pages NA STRANITSY TOMA
                     val pages = PdfUtils.getPdfPageCount(
                         requireContext(),
                         volumes[pos].pdfPath
@@ -169,7 +160,6 @@ class BookDetailFragment : Fragment() {
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
 
-            // Postavit' pervyy tom po umolchaniyu
             bookCover.setImageResource(volumes[0].coverImage)
 
             val firstVolumePages = PdfUtils.getPdfPageCount(
@@ -180,7 +170,6 @@ class BookDetailFragment : Fragment() {
             bookPages.text = firstVolumePages.toString()
 
         } else {
-            // Net tomov - skryt' i pokazat' stranitsy perevoda
             tomSection.visibility = View.GONE
 
             val pdfPath = selectedTranslation?.pdfPath
@@ -221,6 +210,11 @@ class BookDetailFragment : Fragment() {
 
     private fun openPdfReader() {
         val translation = selectedTranslation ?: return
+
+        android.util.Log.d(
+            "THEME_DEBUG",
+            "Before open PDF = ${ThemeHelper.getTheme(requireContext())}"
+        )
 
         val pdfPath = if (translation.volumes != null && translation.volumes.isNotEmpty()) {
             translation.volumes[selectedVolumeIndex].pdfPath

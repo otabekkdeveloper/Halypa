@@ -3,7 +3,6 @@ package com.example.arkadagapp.utils
 import android.content.Context
 import com.example.arkadagapp.model.Book
 import com.example.arkadagapp.model.SearchResult
-import com.example.arkadagapp.utils.PdfSearchHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -23,7 +22,6 @@ object SearchManager {
         allBooks.forEach { book ->
             book.translations.forEach { translation ->
 
-                // Поиск в PDF без томов
                 if (translation.pdfPath != null) {
                     val pdfResults = PdfSearchHelper.searchInPdf(
                         context,
@@ -44,7 +42,6 @@ object SearchManager {
                     }
                 }
 
-                // Поиск в PDF с томами
                 translation.volumes?.forEach { volume ->
                     val pdfResults = PdfSearchHelper.searchInPdf(
                         context,

@@ -10,7 +10,7 @@
     <!-- Obychnyy -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#1E293B"/>
+            <solid android:color="#9CBCF4"/>
         </shape>
     </item>
 </selector>

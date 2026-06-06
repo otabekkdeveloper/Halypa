@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arkadagapp.R
 import com.example.arkadagapp.model.Book
+
 class BookAdapter(
     private val books: List<Book>,
     private val onBookClick: (Book) -> Unit

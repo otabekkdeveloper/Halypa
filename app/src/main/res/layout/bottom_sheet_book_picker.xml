@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:background="@drawable/bg_search">
 
-    <!-- Ручка -->
     <View
         android:layout_width="36dp"
         android:layout_height="4dp"
@@ -15,7 +14,6 @@
         android:layout_marginBottom="8dp"
         android:background="@color/blue" />
 
-    <!-- Заголовок -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +29,6 @@
         android:layout_height="0.5dp"
         android:background="@color/white" />
 
-    <!-- Список книг -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/books_recycler"
         android:layout_width="match_parent"

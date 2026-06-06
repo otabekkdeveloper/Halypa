@@ -38,15 +38,12 @@ class QuotesAdapter(
         holder.quoteText.text = quote.text
         holder.quoteSource.text = quote.source
 
-        // Обновить иконку лайка
         updateLikeIcon(holder.btnLike, quote.isFavorite)
 
-        // Copy Button
         holder.btnCopy.setOnClickListener {
             copyToClipboard(holder.itemView.context, quote)
         }
 
-        // Like Button
         holder.btnLike.setOnClickListener {
             QuotesManager.toggleFavorite(quote.id)
             updateLikeIcon(holder.btnLike, quote.isFavorite)
@@ -71,10 +68,10 @@ class QuotesAdapter(
     private fun updateLikeIcon(btnLike: ImageView, isFavorite: Boolean) {
         if (isFavorite) {
             btnLike.setImageResource(R.drawable.ic_heart_filled)
-            btnLike.setColorFilter(0xFF3B82F6.toInt()) // Blue
+            btnLike.setColorFilter(0xFF3B82F6.toInt())
         } else {
             btnLike.setImageResource(R.drawable.ic_heart_outline)
-            btnLike.setColorFilter(0xFF71717A.toInt()) // Gray
+            btnLike.setColorFilter(0xFF71717A.toInt())
         }
     }
 

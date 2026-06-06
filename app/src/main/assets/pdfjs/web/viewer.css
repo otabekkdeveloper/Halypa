@@ -7025,6 +7025,14 @@ button.hasPopupMenu[aria-expanded="false"] + menu{
 }
 }
 
+:root.theme-light {
+  --csstools-color-scheme--light: initial;
+}
+
+:root.theme-dark {
+  --csstools-color-scheme--light: ;
+}
+
 @media screen and (forced-colors: active){
 
 :root{
@@ -8827,8 +8835,14 @@ button#downloadButton {
 #secondaryOpenFile,
 #scrollPage,
 #documentProperties,
-#stampAddImage,
 #viewBookmark,
 #secondaryDownload {
     display: none !important;
+}
+
+
+.textLayer span {
+    pointer-events: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }

@@ -55,7 +55,6 @@ class FavoriteQuotesFragment : Fragment() {
             quotesRecycler.visibility = View.VISIBLE
 
             quotesAdapter = QuotesAdapter(favorites) {
-                // Обновить список когда убрали из избранного
                 loadFavorites()
             }
             quotesRecycler.adapter = quotesAdapter

@@ -42,12 +42,10 @@ class FavoriteBooksFragment : Fragment() {
     }
 
     private fun loadFavoriteBooks() {
-        // Poluchaem vse knigi u kotoryh isLiked = true
         val likedBooks = bookmarkManager.getAllBooksProgress()
             .filter { likeManager.isLiked(it.bookId) }
 
         val adapter = FavoriteBooksAdapter(likedBooks) { bookProgress ->
-            // otkryt' knigu
         }
         recyclerView.adapter = adapter
     }

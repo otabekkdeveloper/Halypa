@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="app_color">#101622</color>
-    <color name="ic_unchecked">#71717A</color>
-    <color name="gray">#71717A</color>
+    <color name="black">#FFFFFF</color>
+    <color name="white">#000000</color>
+    <color name="app_color">#F1F5F9</color>
+    <color name="ic_unchecked">#9CA3AF</color>
+    <color name="gray">#6B7280</color>
     <color name="ic_checked">#135BEC</color>
-    <color name="color_bg_search">#7D7D80</color>
+    <color name="color_bg_search">#D1D5DB</color>
     <color name="read_btn_color">#135BEC</color>
     <color name="blue">#2563EB</color>
-    <color name="dark_gray">#1E293B</color>
-    <color name="bg_card_settings">#737376</color>
-    <color name="bg_search">#27272A</color>
-    <color name="item_quote_color">#1A2231</color>
+    <color name="dark_gray">#E2E8F0</color>
+    <color name="bg_card_settings">#E5E7EB</color>
+    <color name="bg_search">#BABBC2</color>
+    <color name="item_quote_color">#DBEAFE</color>
 </resources>

@@ -10,20 +10,16 @@ class BookmarkManager(context: Context) {
     private val prefs: SharedPreferences =
         context.getSharedPreferences("bookmarks", Context.MODE_PRIVATE)
 
-    // Sohranit' progress
     fun saveProgress(bookId: Int, currentPage: Int, totalPages: Int) {
         prefs.edit().apply {
             putInt("book_${bookId}_page", currentPage)
             putInt("book_${bookId}_total", totalPages)
-
-            // ✅ vremya poslednego chteniya
             putLong("book_${bookId}_last_read", System.currentTimeMillis())
 
             apply()
         }
     }
 
-    // Sohranit' info knigi
     fun saveBookInfo(bookId: Int, title: String, coverImage: Int, pdfPath: String) {
         prefs.edit().apply {
             putString("book_${bookId}_title", title)
@@ -33,12 +29,10 @@ class BookmarkManager(context: Context) {
         }
     }
 
-    // Poluchit' sohranennuyu stranitsu
     fun getSavedPage(bookId: Int): Int {
         return prefs.getInt("book_${bookId}_page", 0)
     }
 
-    // Poluchit' protsent
     fun getProgress(bookId: Int): Int {
         val currentPage = prefs.getInt("book_${bookId}_page", 0)
         val totalPages = prefs.getInt("book_${bookId}_total", 1)
@@ -47,22 +41,18 @@ class BookmarkManager(context: Context) {
         } else 0
     }
 
-    // Poluchit' nazvanie knigi
     fun getBookTitle(bookId: Int): String {
         return prefs.getString("book_${bookId}_title", "Kitap #$bookId") ?: "Kitap #$bookId"
     }
 
-    // Poluchit' cover knigi
     fun getBookCover(bookId: Int): Int {
         return prefs.getInt("book_${bookId}_cover", R.drawable.placeholder)
     }
 
-    // Poluchit' PDF path
     fun getBookPdfPath(bookId: Int): String {
         return prefs.getString("book_${bookId}_pdf", "") ?: ""
     }
 
-    // Poluchit' vse knigi s progressom
     fun getAllBooksProgress(): List<BookProgress> {
         val allKeys = prefs.all.keys
         val bookIds = allKeys

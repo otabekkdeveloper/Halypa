@@ -29,7 +29,6 @@ class QuoteFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_quote, container, false)
 
-        // Инициализация QuotesManager
         QuotesManager.init(requireContext())
 
         searchInput = view.findViewById(R.id.search_input)

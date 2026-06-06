@@ -91,7 +91,7 @@ class MistakesAdapter(
     override fun onBindViewHolder(holder: MistakeViewHolder, position: Int) {
         val mistake = mistakes[position]
 
-        holder.questionNumber.text = "Sorag ${mistake.questionNumber}"
+        holder.questionNumber.text = "${mistake.questionNumber}"
         holder.questionText.text = mistake.question.question
         holder.userAnswer.text = mistake.question.answers[mistake.userAnswerIndex]
         holder.correctAnswer.text = mistake.question.answers[mistake.question.correctAnswerIndex]

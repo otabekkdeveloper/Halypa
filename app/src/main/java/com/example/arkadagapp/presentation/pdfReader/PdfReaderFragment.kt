@@ -2,6 +2,7 @@ package com.example.arkadagapp.presentation.pdfReader
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -111,6 +112,11 @@ class PdfReaderFragment : Fragment() {
             false
         )
 
+        requireActivity().window.setFlags(
+            android.view.WindowManager.LayoutParams.FLAG_SECURE,
+            android.view.WindowManager.LayoutParams.FLAG_SECURE
+        )
+
         webView =
             view.findViewById(R.id.pdf_webview)
 
@@ -141,8 +147,6 @@ class PdfReaderFragment : Fragment() {
         view.findViewById<TextView>(R.id.book_title).text =
             bookTitle
 
-        // BACK
-
         view.findViewById<ImageButton>(R.id.back_button)
             .setOnClickListener {
 
@@ -151,15 +155,11 @@ class PdfReaderFragment : Fragment() {
                 parentFragmentManager.popBackStack()
             }
 
-        // LIKE
-
         updateLikeIcon()
 
         likeButton.setOnClickListener {
             toggleLike()
         }
-
-        // SEARCH PANEL
 
         searchButton.setOnClickListener {
 
@@ -173,8 +173,6 @@ class PdfReaderFragment : Fragment() {
             }
         }
 
-        // SEARCH NEXT
-
         btnNext.setOnClickListener {
 
             val query =
@@ -185,8 +183,6 @@ class PdfReaderFragment : Fragment() {
                 nextSearch(query)
             }
         }
-
-        // SEARCH PREV
 
         btnPrev.setOnClickListener {
 
@@ -211,6 +207,14 @@ class PdfReaderFragment : Fragment() {
 
         setupWebView()
 
+        Log.d(
+            "THEME_DEBUG",
+            "NightMode before PDF = ${
+                resources.configuration.uiMode and
+                        android.content.res.Configuration.UI_MODE_NIGHT_MASK
+            }"
+        )
+
         loadPdf()
 
         return view
@@ -221,6 +225,7 @@ class PdfReaderFragment : Fragment() {
 
         webView.webViewClient =
             WebViewClient()
+
 
         webView.addJavascriptInterface(
             object {
@@ -266,7 +271,11 @@ class PdfReaderFragment : Fragment() {
         )
     }
 
+
+
     private fun loadPdf() {
+
+
 
         try {
 
@@ -331,8 +340,6 @@ class PdfReaderFragment : Fragment() {
             ).show()
         }
     }
-
-    // SEARCH + YELLOW HIGHLIGHT
 
     private fun searchText(query: String) {
 
@@ -484,6 +491,9 @@ class PdfReaderFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        requireActivity().window.clearFlags(
+            android.view.WindowManager.LayoutParams.FLAG_SECURE
+        )
 
         saveCurrentProgress()
 

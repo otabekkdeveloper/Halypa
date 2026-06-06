@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:background="@color/app_color">
 
-    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,26 +18,37 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
-            android:tint="#FFFFFF" />
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/question"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/libre_baskerville"
+            android:gravity="end" />
 
         <TextView
             android:id="@+id/test_progress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sorag 1/10"
-            android:textColor="#FFFFFF"
+            android:text="1/10"
+            android:textColor="@color/white"
             android:textSize="20sp"
+            android:layout_marginStart="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/libre_baskerville"
-            android:gravity="center" />
+            android:gravity="start" />
 
         <View
             android:layout_width="32dp"
             android:layout_height="32dp" />
     </LinearLayout>
 
-    <!-- Progress Bar -->
     <ProgressBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -60,19 +70,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Вопрос -->
             <TextView
                 android:id="@+id/question_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:fontFamily="@font/libre_baskerville"
                 android:background="@drawable/bg_search"
                 android:padding="20dp"
                 android:lineSpacingExtra="6dp" />
 
-            <!-- Варианты ответов -->
             <RadioGroup
                 android:id="@+id/answers_group"
                 android:layout_width="match_parent"
@@ -82,12 +90,11 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Кнопка далее -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Öňe"
+        android:text="@string/continue_question"
         app:cornerRadius="16dp"
         style="@style/text_white_16"
         android:backgroundTint="@color/gray"

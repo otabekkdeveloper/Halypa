@@ -32,7 +32,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Halypa"
+                android:text="Halypa Jöwheri"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:fontFamily="@font/libre_baskerville"
@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Dil:"
+                    android:text="@string/language"
                     style="@style/text_gray_14"
                     android:layout_gravity="center_vertical"/>
 
@@ -161,7 +161,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Awtor:"
+                    android:text="@string/author"
                     style="@style/text_gray_14"/>
 
                 <TextView
@@ -183,7 +183,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Ýyl:"
+                    android:text="@string/year"
                     style="@style/text_gray_14"/>
 
                 <TextView
@@ -204,7 +204,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Sahypa:"
+                    android:text="@string/page"
                     style="@style/text_gray_14"/>
 
                 <TextView
@@ -223,7 +223,7 @@
             app:cornerRadius="26dp"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Oka"
+            android:text="@string/read"
             android:textColor="@color/white"
             android:fontFamily="@font/libre_baskerville"
             android:textSize="18sp"

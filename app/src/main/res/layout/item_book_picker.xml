@@ -10,7 +10,6 @@
     android:background="?attr/selectableItemBackground"
     android:foreground="?attr/selectableItemBackground">
 
-    <!-- Обложка книги -->
     <ImageView
         android:id="@+id/book_cover_image"
         android:layout_width="36dp"
@@ -19,7 +18,6 @@
         android:background="@drawable/placeholder"
         android:layout_marginEnd="12dp" />
 
-    <!-- Название книги -->
     <TextView
         android:id="@+id/book_title"
         android:layout_width="0dp"
@@ -29,7 +27,6 @@
         android:textSize="13sp"
         android:lineSpacingMultiplier="1.3" />
 
-    <!-- Галочка выбранной книги -->
     <ImageView
         android:id="@+id/check_icon"
         android:layout_width="20dp"

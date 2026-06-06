@@ -10,5 +10,25 @@
     <string name="language">Язык</string>
     <string name="reading_progress">Прогресс чтения</string>
     <string name="favorite_quotes">Избранные цитаты</string>
-    <string name="page">страница</string>
+    <string name="page">Cтраница</string>
+    <string name="home_page">Главная</string>
+    <string name="quotes_page">Цитаты</string>
+    <string name="question_page">Вопросы</string>
+    <string name="settings_page">Настройки</string>
+    <string name="theme">Тема</string>
+    <string name="continue_book">Продолжить чтение</string>
+    <string name="question">Вопрос</string>
+    <string name="author">Автор</string>
+    <string name="year">Год</string>
+    <string name="continue_question">Далее</string>
+    <string name="read">Читать</string>
+    <string name="exam_finished">Тест завершён!</string>
+    <string name="your_result">Ваш результат:</string>
+    <string name="correct_answers">Правильные ответы:</string>
+    <string name="wrong_answers">Неправильные ответы:</string>
+    <string name="view_mistakes">Посмотреть ошибки</string>
+    <string name="back_to_tests">Вернуться к тестам</string>
+    <string name="your_answer">Ваш ответ</string>
+    <string name="correct_answer">Правильный ответ</string>
+    <string name="finish">Завершить</string>
 </resources>

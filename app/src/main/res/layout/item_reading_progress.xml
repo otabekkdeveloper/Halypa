@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:background="@color/app_color">
 
-    <!-- Контент item -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,13 +49,11 @@
                 android:layout_marginTop="4dp"/>
         </LinearLayout>
 
-        <!-- Pie Chart Progress -->
         <RelativeLayout
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center_vertical">
 
-            <!-- Percentage Text -->
             <TextView
                 android:id="@+id/progress_percentage"
                 android:layout_width="wrap_content"
@@ -70,7 +67,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="8dp"/>
 
-            <!-- Custom Pie Chart View -->
             <com.example.arkadagapp.presentation.settings.PieChartView
                 android:id="@+id/pie_chart"
                 android:layout_width="30dp"
@@ -81,7 +77,6 @@
 
     </LinearLayout>
 
-    <!-- Divider внизу -->
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"

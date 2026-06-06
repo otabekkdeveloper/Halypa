@@ -24,7 +24,9 @@ object QuotesManager {
         Quote(7, "Adam eli gyzyl gül", "Älem içre at gezer"),
         Quote(8, "Dost dostuň aýnasydyr", "Älem içre at gezer"),
         Quote(9, "Watan öküze iým ýok", "Älem içre at gezer"),
-        Quote(10, "Paýhas çeşmesi", "Älem içre at gezer")
+        Quote(10, "Paýhas çeşmesi", "Älem içre at gezer"),
+        Quote(11, "sfdsfsdfsdf çeşmesi", "Älem içre at gezer"),
+        Quote(12, "Qlem;mm", "Älem içre at gezer"),
     )
 
     fun init(context: Context) {
@@ -62,7 +64,6 @@ object QuotesManager {
 
     fun getFavoriteQuotes(): List<Quote> = quotes.filter { it.isFavorite }
 
-    // Поиск ТОЛЬКО по тексту цитаты
     fun searchQuotes(query: String): List<Quote> {
         if (query.isEmpty()) return quotes
         return quotes.filter {

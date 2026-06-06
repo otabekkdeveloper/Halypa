@@ -1,5 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Dark Theme -->
     <style name="AppTheme.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/app_color</item>
         <item name="android:navigationBarColor">@color/app_color</item>
@@ -7,7 +6,6 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
 
-    <!-- Light Theme -->
     <style name="AppTheme.Light" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/app_color</item>
         <item name="android:navigationBarColor">@color/app_color</item>
@@ -15,6 +13,5 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
     </style>
 
-    <!-- Default Theme (Dark) -->
     <style name="AppTheme" parent="AppTheme.Dark"/>
 </resources>

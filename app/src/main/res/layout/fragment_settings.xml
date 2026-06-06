@@ -11,11 +11,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sazlamalar"
+            android:text="@string/settings"
             android:textSize="24sp"
             android:paddingBottom="16dp"
             android:fontFamily="@font/libre_baskerville"
@@ -27,7 +26,6 @@
             android:layout_height="0.5dp"
             android:background="@color/gray"/>
 
-        <!-- Language -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dil"
+                android:text="@string/language"
                 android:textSize="14sp"
                 android:fontFamily="@font/libre_baskerville"
                 android:gravity="center"
@@ -69,7 +67,6 @@
             android:layout_height="0.5dp"
             android:background="@color/gray"/>
 
-        <!-- Theme -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,7 +78,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tema"
+                android:text="@string/theme"
                 android:textSize="14sp"
                 android:gravity="center"
                 android:textColor="@color/white"
@@ -121,7 +118,6 @@
             android:background="@color/gray"/>
 
 
-        <!-- Statistics -->
         <TextView
             android:layout_width="wrap_content"
             android:visibility="gone"
@@ -150,44 +146,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <LinearLayout
-                android:id="@+id/favorite_books_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:background="@drawable/bg_search"
-                android:padding="16dp"
-                android:layout_marginEnd="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Saýlanan\nkitaplar"
-                    style="@style/text_gray_14"/>
-
-                <TextView
-                    android:id="@+id/completed_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5"
-                    android:fontFamily="@font/libre_baskerville"
-                    android:textColor="@color/blue"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp"/>
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/favorite_quotes_button"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_weight="1"
                 android:background="@drawable/bg_search"
                 android:orientation="vertical"
                 android:padding="16dp"
@@ -199,26 +167,26 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Saýlanan\nsitatalar"/>
+                    android:text="@string/favorite_quotes"/>
 
                 <TextView
                     android:id="@+id/quotes_count"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/libre_baskerville"
                     android:text="10"
+                    android:gravity="center"
                     android:textColor="@color/blue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Reading Progress Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dowam et"
+            android:text="@string/continue_book"
             android:gravity="center"
             android:textSize="14sp"
             android:paddingHorizontal="10dp"

@@ -9,5 +9,29 @@
     <string name="language">Dil</string>
     <string name="reading_progress">Okamak ilerlemegi</string>
     <string name="favorite_quotes">Halanýan sitatalar</string>
-    <string name="page">sahypa</string>
+    <string name="page">Sahypa</string>
+    <string name="home_page">Baş sahypa</string>
+    <string name="quotes_page">Sitatalar</string>
+    <string name="question_page">Synag</string>
+    <string name="settings_page">Sazlamalar</string>
+    <string name="theme">Tema</string>
+    <string name="continue_book">Dowam et</string>
+    <string name="question">Sorag</string>
+    <string name="author">Awtor</string>
+    <string name="year">Ýyl</string>
+    <string name="continue_question">Öňe</string>
+    <string name="read">Oka</string>
+    <string name="exam_finished">Synag tamamlandy!</string>
+    <string name="your_result">Siziň netijäňiz:</string>
+    <string name="correct_answers">Dogry jogaplar:</string>
+    <string name="wrong_answers">Ýalňyş jogaplar:</string>
+    <string name="view_mistakes">Ýalňyşlary görmek</string>
+    <string name="back_to_tests">Testlere dolanmak</string>
+    <string name="your_answer">Siziň jogabyňyz:</string>
+    <string name="correct_answer">Dogry jogap:</string>
+    <string name="finish">Gutarmak</string>
+
+
+
+
 </resources>
